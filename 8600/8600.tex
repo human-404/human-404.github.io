@@ -1,6 +1,10 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+
 \usepackage{xcolor}
 \usepackage{pagecolor}
 \usepackage{lipsum}  
@@ -36,6 +40,65 @@
 	Tikhonov regularization; shrinkage (statistics); ridge regression; weight decay (neural network)
 	$$
 	\widetilde{E}(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\lambda}{2}\|\mathbf{w}\|^{2}
+	$$
+	the squared Euclidean norm of the coefficients
+	$$
+	\|\mathbf{w}\|^{2} \equiv \mathbf{w}^{\mathrm{T}} \mathbf{w}=w_{0}^{2}+w_{1}^{2}+\ldots+w_{M}^{2}
+	$$
+	sum rule of probability
+	$$
+	p(X)=\sum_{Y} p(X, Y)\text{ or } p(x)=\int p(x, y) \mathrm{d} y
+	$$
+	product rule of probability
+	$$
+	p(X, Y)=p(Y \mid X) p(X) \text{ or } p(x, y)=p(y \mid x) p(x)
+	$$
+	conditional probability
+	$$
+	p(Y \mid X)=\frac{p(X \mid Y) p(Y)}{p(X)}
+	$$
+	Kolmogorov axioms; probability axioms 
+	$$
+	\begin{aligned}
+	p(x) & \geqslant 0 \\
+	\int_{-\infty}^{\infty} p(x) \mathrm{d} x &=1
+	\end{aligned}
+	$$
+	Jacobian transform; Jacobian factor
+	$$
+	\begin{aligned}
+	x&=g(y)\\
+	p_{y}(y) &=p_{x}(x)\left|\frac{\mathrm{d} x}{\mathrm{~d} y}\right| \\
+	&=p_{x}(g(y))\left|g^{\prime}(y)\right| 
+	\end{aligned}
+	$$
+	
+	$$
+	\begin{array}{l}
+	\mathbf{X} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma}), \mathbf{Y} \sim \mathbf{A X}+\mathbf{B} \\
+	\Rightarrow \mathbf{Y} \sim \mathcal{N}\left(\mathbf{A} \boldsymbol{\mu}+\mathbf{B}, \mathbf{A} \boldsymbol{\Sigma} \mathbf{A}^{\top}\right)
+	\end{array}
+	$$	
+	expectation of $f(x)$
+	$$
+	\mathbb{E}[f]=\sum_{x} p(x) f(x)=\int p(x) f(x) \mathrm{d} x
+	$$
+	variance of $f(x)$
+	$$
+	\operatorname{var}[f]=\mathbb{E}\left[(f(x)-\mathbb{E}[f(x)])^{2}\right]
+	$$
+	covariance of $x$ and $y$
+	$$
+	\begin{aligned}
+	\operatorname{cov}[x, y] &=\mathbb{E}_{x, y}[\{x-\mathbb{E}[x]\}\{y-\mathbb{E}[y]\}] \\
+	&=\mathbb{E}_{x, y}[x y]-\mathbb{E}[x] \mathbb{E}[y]
+	\end{aligned}
+	$$
+	$$
+	\begin{aligned}
+	\operatorname{cov}[\mathbf{x}, \mathbf{y}] &=\mathbb{E}_{\mathbf{x}, \mathbf{y}}\left[\{\mathbf{x}-\mathbb{E}[\mathbf{x}]\}\left\{\mathbf{y}^{\mathrm{T}}-\mathbb{E}\left[\mathbf{y}^{\mathrm{T}}\right]\right\}\right] \\
+	&=\mathbb{E}_{\mathbf{x}, \mathbf{y}}\left[\mathbf{x} \mathbf{y}^{\mathrm{T}}\right]-\mathbb{E}[\mathbf{x}] \mathbb{E}\left[\mathbf{y}^{\mathrm{T}}\right]
+	\end{aligned}
 	$$
 	\pagebreak
 	\section{Week 2}
