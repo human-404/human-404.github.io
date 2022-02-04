@@ -166,6 +166,29 @@
 	$$
 	\frac{1}{\beta_{\mathrm{ML}}}=\frac{1}{N} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}_{\mathrm{ML}}\right)-t_{n}\right\}^{2}
 	$$
+	maximizing likelihood is equivalent, so far as determining $\mathbf{w}$ is concerned, to minimizing the sum-of-squares error function
+	$$
+	\mathbf{w}_{\mathrm{ML}}\equiv\arg\min_{\mathbf{w}}E(\mathbf{w})=
+	\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}
+	$$
+	predictive distribution via the maximum likelihood parameters
+	$$
+	p\left(t \mid x, \mathbf{w}_{\mathrm{ML}}, \beta_{\mathrm{ML}}\right)=\mathcal{N}\left(t \mid y\left(x, \mathbf{w}_{\mathrm{ML}}\right), \beta_{\mathrm{ML}}^{-1}\right)
+	$$
+	prior distribution over the polynomial coefficients $\mathbf{w}$
+	$$
+	p(\mathbf{w} \mid \alpha)=\mathcal{N}\left(\mathbf{w} \mid \mathbf{0}, \alpha^{-1} \mathbf{I}\right)=\left(\frac{\alpha}{2 \pi}\right)^{(M+1) / 2} \exp \left\{-\frac{\alpha}{2} \mathbf{w}^{\mathrm{T}} \mathbf{w}\right\}
+	$$
+	the posterior distribution for $\mathbf{w}$
+	$$
+	p(\mathbf{w} \mid \mathbf{x}, \mathbf{t}, \alpha, \beta) \propto p(\mathbf{t} \mid \mathbf{x}, \mathbf{w}, \beta) p(\mathbf{w} \mid \alpha)
+	$$
+	maximum a posteriori probability (MAP) estimate for $\mathbf{w}$
+	\\
+	maximizing the posterior distribution is equivalent to minimizing the regularized sum-of-squares error function, where $\lambda=\alpha/\beta$
+	$$
+	\mathbf{w}_{\mathrm{MAP}}\equiv\arg\min_{\mathbf{w}}\frac{\beta}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\alpha}{2} \mathbf{w}^{\mathrm{T}} \mathbf{w}
+	$$
 	
 	\pagebreak
 	\section{Week 2}
