@@ -5,14 +5,6 @@
 \usepackage{amssymb} %maths
 \usepackage{amsmath} %maths
 
-\usepackage{xcolor}
-\usepackage{pagecolor}
-\usepackage{lipsum}  
-\usepackage{mdframed}
-
-\pagecolor{black}
-\color{white}
-
 \title{8600}
 \author{u6451429}
 
@@ -75,8 +67,8 @@
 	
 	$$
 	\begin{array}{l}
-	\mathbf{X} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma}), \mathbf{Y} \sim \mathbf{A X}+\mathbf{B} \\
-	\Rightarrow \mathbf{Y} \sim \mathcal{N}\left(\mathbf{A} \boldsymbol{\mu}+\mathbf{B}, \mathbf{A} \boldsymbol{\Sigma} \mathbf{A}^{\top}\right)
+	\mathbf{x} \sim \mathcal{N}(\boldsymbol{\mu}, \boldsymbol{\Sigma}), \mathbf{y} \sim \mathbf{A x}+\mathbf{b} \\
+	\Rightarrow \mathbf{y} \sim \mathcal{N}\left(\mathbf{A} \boldsymbol{\mu}+\mathbf{b}, \mathbf{A} \boldsymbol{\Sigma} \mathbf{A}^{\top}\right)
 	\end{array}
 	$$	
 	expectation of $f(x)$
@@ -100,6 +92,73 @@
 	&=\mathbb{E}_{\mathbf{x}, \mathbf{y}}\left[\mathbf{x} \mathbf{y}^{\mathrm{T}}\right]-\mathbb{E}[\mathbf{x}] \mathbb{E}\left[\mathbf{y}^{\mathrm{T}}\right]
 	\end{aligned}
 	$$
+	Bayes’ theorem
+	$$
+	p(\mathbf{w} \mid \mathcal{D})=\frac{p(\mathcal{D} \mid \mathbf{w}) p(\mathbf{w})}{p(\mathcal{D})}
+	$$
+	$$
+	\text { posterior } \propto \text { likelihood } \times \text { prior }
+	$$
+	Gaussian distribution
+	$$
+	\mathcal{N}\left(x \mid \mu, \sigma^{2}\right)=\frac{1}{\left(2 \pi \sigma^{2}\right)^{1 / 2}} \exp \left\{-\frac{1}{2 \sigma^{2}}(x-\mu)^{2}\right\}
+	$$
+	$$
+	\mathbb{E}[x]=\int_{-\infty}^{\infty} \mathcal{N}\left(x \mid \mu, \sigma^{2}\right) x \mathrm{~d} x=\mu
+	$$
+	$$
+	\mathbb{E}\left[x^{2}\right]=\int_{-\infty}^{\infty} \mathcal{N}\left(x \mid \mu, \sigma^{2}\right) x^{2} \mathrm{~d} x=\mu^{2}+\sigma^{2}
+	$$
+	$$
+	\operatorname{var}[x]=\mathbb{E}\left[x^{2}\right]-\mathbb{E}[x]^{2}=\sigma^{2}
+	$$
+	Gaussian integral
+	$$
+	{\displaystyle \int _{-\infty }^{\infty }e^{-a(x+b)^{2}}\,dx={\sqrt {\frac {\pi }{a}}}.}
+	$$
+	multivariate Gaussian distribution
+	$$
+	\mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}, \boldsymbol{\Sigma})=\frac{1}{(2 \pi)^{D / 2}} \frac{1}{|\boldsymbol{\Sigma}|^{1 / 2}} \exp \left\{-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right\}
+	$$
+	independent and identically distributed Gaussian random variables
+	$$
+	p\left(\mathbf{x} \mid \mu, \sigma^{2}\right)=\prod_{n=1}^{N} \mathcal{N}\left(x_{n} \mid \mu, \sigma^{2}\right)
+	$$
+	the log likelihood of Gaussian random variables
+	$$
+	\ln p\left(\mathbf{x} \mid \mu, \sigma^{2}\right)=-\frac{1}{2 \sigma^{2}} \sum_{n=1}^{N}\left(x_{n}-\mu\right)^{2}-\frac{N}{2} \ln \sigma^{2}-\frac{N}{2} \ln (2 \pi)
+	$$
+	the maximum likelihood solution
+	$$
+	\mu_{\mathrm{ML}}=\frac{1}{N} \sum_{n=1}^{N} x_{n}
+	$$
+	$$
+	\sigma_{\mathrm{ML}}^{2}=\frac{1}{N} \sum_{n=1}^{N}\left(x_{n}-\mu_{\mathrm{ML}}\right)^{2}
+	$$
+	population mean and population variance 
+	$$
+	\begin{array}{l}
+	\mathbb{E}\left[\mu_{\mathrm{ML}}\right]=\mu \\
+	\mathbb{E}\left[\sigma_{\mathrm{ML}}^{2}\right]=\left(\frac{N-1}{N}\right) \sigma^{2}
+	\end{array}
+	$$
+	unbiased estimate for the variance parameter
+	$$
+	\widetilde{\sigma}^{2}=\frac{N}{N-1} \sigma_{\mathrm{ML}}^{2}=\frac{1}{N-1} \sum_{n=1}^{N}\left(x_{n}-\mu_{\mathrm{ML}}\right)^{2}
+	$$
+	polynomial curve fitting
+	$$
+	p(t \mid x, \mathbf{w}, \beta)=\mathcal{N}\left(t \mid y(x, \mathbf{w}), \beta^{-1}\right)
+	$$
+	the log likelihood function
+	$$
+	\ln p(\mathbf{t} \mid \mathbf{x}, \mathbf{w}, \beta)=-\frac{\beta}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{N}{2} \ln \beta-\frac{N}{2} \ln (2 \pi)
+	$$
+	the maximum likelihood solution of the precision parameter $\beta$
+	$$
+	\frac{1}{\beta_{\mathrm{ML}}}=\frac{1}{N} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}_{\mathrm{ML}}\right)-t_{n}\right\}^{2}
+	$$
+	
 	\pagebreak
 	\section{Week 2}
 	
