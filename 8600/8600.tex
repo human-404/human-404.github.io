@@ -189,6 +189,90 @@
 	$$
 	\mathbf{w}_{\mathrm{MAP}}\equiv\arg\min_{\mathbf{w}}\frac{\beta}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\alpha}{2} \mathbf{w}^{\mathrm{T}} \mathbf{w}
 	$$
+	predictive distribution (Gaussian)
+	$$
+	p(t \mid x, \mathbf{x}, \mathbf{t})=\int p(t \mid x, \mathbf{w}) p(\mathbf{w} \mid \mathbf{x}, \mathbf{t}) \mathrm{d} \mathbf{w}
+	$$
+	$$
+	p(t \mid x, \mathbf{x}, \mathbf{t})=\mathcal{N}\left(t \mid m(x), s^{2}(x)\right)
+	$$
+	$$
+	\begin{aligned}
+	m(x) &=\beta \boldsymbol{\phi}(x)^{\mathrm{T}} \mathbf{S} \sum_{n=1}^{N} \boldsymbol{\phi}\left(x_{n}\right) t_{n} \\
+	s^{2}(x) &=\beta^{-1}+\boldsymbol{\phi}(x)^{\mathrm{T}} \mathbf{S} \boldsymbol{\phi}(x) \\
+	\mathbf{S}^{-1}&=\alpha \mathbf{I}+\beta \sum_{n=1}^{N} \boldsymbol{\phi}\left(x_{n}\right) \boldsymbol{\phi}(x)^{\mathrm{T}}\\
+	\boldsymbol{\phi}(x)&:=\phi_i(x)=x^i \text{ for }i=0,\dots,M
+	\end{aligned}
+	$$
+	Akaike information criterion (AIC)
+	$$
+	\ln p\left(\mathcal{D} \mid \mathbf{w}_{\mathrm{ML}}\right)-M
+	$$
+	the expected loss 
+	$$
+	\mathbb{E}[L]=\iint L(t, y(\mathbf{x})) p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t
+	$$
+	$$
+	\mathbb{E}[L]=\iint\{y(\mathbf{x})-t\}^{2} p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t
+	$$
+	Minkowski loss
+	$$
+	\mathbb{E}\left[L_{q}\right]=\iint|y(\mathbf{x})-t|^{q} p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t
+	$$
+	
+	\pagebreak
+	
+	${}$\\
+	entropy
+	$$
+	\mathrm{H}[p]=-\sum_{i} p\left(x_{i}\right) \ln p\left(x_{i}\right)
+	$$
+	differential entropy
+	$$
+	\mathrm{H}[x]=-\int p(x) \ln p(x) \mathrm{d} x\quad \mathrm{H}[\mathbf{x}]=-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}
+	$$
+	Stirling’s approximation
+	$$
+	\ln N ! \simeq N \ln N-N
+	$$
+	conditional entropy
+	$$
+	\mathrm{H}[\mathbf{y} \mid \mathbf{x}]=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x}
+	$$
+	$$
+	\mathrm{H}[\mathbf{x}, \mathbf{y}]=\mathrm{H}[\mathbf{y} \mid \mathbf{x}]+\mathrm{H}[\mathbf{x}]
+	$$
+	Kullback-Leibler divergence (relative entropy)
+	$$
+	\begin{aligned}
+	\mathrm{KL}(p \| q) &=-\int p(\mathbf{x}) \ln q(\mathbf{x}) \mathrm{d} \mathbf{x}-\left(-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \\
+	&=-\int p(\mathbf{x}) \ln \left\{\frac{q(\mathbf{x})}{p(\mathbf{x})}\right\} \mathrm{d} \mathbf{x} .
+	\end{aligned}
+	$$
+	$$
+	\mathrm{KL}(p \| q) \not \equiv \mathrm{KL}(q \| p)
+	$$
+	Jensen’s inequality
+	$$
+	f\left(\sum_{i=1}^{M} \lambda_{i} x_{i}\right) \leqslant \sum_{i=1}^{M} \lambda_{i} f\left(x_{i}\right)
+	$$
+	$$
+	f(\mathbb{E}[x]) \leqslant \mathbb{E}[f(x)]
+	$$
+	$$
+	f\left(\int \mathbf{x} p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \leqslant \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d} \mathbf{x}
+	$$
+	$$
+	\mathrm{KL}(p \| q)=-\int p(\mathbf{x}) \ln \left\{\frac{q(\mathbf{x})}{p(\mathbf{x})}\right\} \mathrm{d} \mathbf{x} \geqslant-\ln \int q(\mathbf{x}) \mathrm{d} \mathbf{x}=0
+	$$
+	mutual information
+	$$
+	\begin{aligned}
+	\mathrm{I}[\mathbf{x}, \mathbf{y}] & \equiv \operatorname{KL}(p(\mathbf{x}, \mathbf{y}) \| p(\mathbf{x}) p(\mathbf{y})) \\
+	&=-\iint p(\mathbf{x}, \mathbf{y}) \ln \left(\frac{p(\mathbf{x}) p(\mathbf{y})}{p(\mathbf{x}, \mathbf{y})}\right) \mathrm{d} \mathbf{x} \mathrm{d} \mathbf{y} \\
+	\mathrm{I}[\mathbf{x}, \mathbf{y}]&=\mathrm{H}[\mathbf{x}]-\mathrm{H}[\mathbf{x} \mid \mathbf{y}]=\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y} \mid \mathbf{x}]
+	\end{aligned}
+	$$
 	
 	\pagebreak
 	\section{Week 2}
