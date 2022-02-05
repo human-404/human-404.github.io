@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.2)  5 FEB 2022 17:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.9.2)  5 FEB 2022 21:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,15 +598,15 @@ Overfull \hbox (28.09645pt too wide) detected at line 325
  []
 
 [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 427.
  [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 427.
  (./8600.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 427.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 427.
 Package rerunfilecheck Info: File `8600.out' has not changed.
 (rerunfilecheck)             Checksum: 6F9076934FBDED3DAE7328EC494B081B;501.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 427.
  ) 
 Here is how much of TeX's memory you used:
  15596 strings out of 492649
@@ -633,7 +633,7 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/
 018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive
 /2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 8600.pdf (18 pages, 189335 bytes).
+Output written on 8600.pdf (18 pages, 191098 bytes).
 PDF statistics:
  221 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams
