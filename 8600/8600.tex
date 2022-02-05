@@ -276,6 +276,86 @@
 	
 	\pagebreak
 	\section{Week 2}
+	Bernoulli distribution
+	$$
+	\operatorname{Bern}(x \mid \mu)=\mu^{x}(1-\mu)^{1-x}
+	$$
+	binomial distribution
+	$$
+	\operatorname{Bin}(m \mid N, \mu)=\binom{N}{m} \mu^{m}(1-\mu)^{N-m}
+	$$
+	$$
+	\begin{aligned}
+	\mathbb{E}[m] \equiv \sum_{m=0}^{N} m \operatorname{Bin}(m \mid N, \mu) &=N \mu \\
+	\operatorname{var}[m] \equiv \sum_{m=0}^{N}(m-\mathbb{E}[m])^{2} \operatorname{Bin}(m \mid N, \mu) &=N \mu(1-\mu)
+	\end{aligned}
+	$$
+	beta distribution
+	$$
+	\begin{aligned}
+	\operatorname{Beta}(\mu \mid a, b) &=\frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)} \mu^{a-1}(1-\mu)^{b-1}\\
+	\mathbb{E}[\mu] &=\frac{a}{a+b} \\
+	\operatorname{var}[\mu] &=\frac{a b}{(a+b)^{2}(a+b+1)}
+	\end{aligned}
+	$$
+	Dirichlet distribution
+	$$
+	{\displaystyle f\left(x_{1},\ldots ,x_{K};\alpha _{1},\ldots ,\alpha _{K}\right)={\frac {1}{\mathrm {B} ({\boldsymbol {\alpha }})}}\prod _{i=1}^{K}x_{i}^{\alpha _{i}-1}}
+	$$
+	$$
+	{\displaystyle \mathrm {B} ({\boldsymbol {\alpha }})={\frac {\prod \limits _{i=1}^{K}\Gamma (\alpha _{i})}{\Gamma \left(\sum \limits _{i=1}^{K}\alpha _{i}\right)}},\qquad {\boldsymbol {\alpha }}=(\alpha _{1},\ldots ,\alpha _{K}).}
+	$$
+	$$
+	{\displaystyle \sum _{i=1}^{K}x_{i}=1{\mbox{ and }}x_{i}\geq 0{\mbox{ for all }}i\in \{1,\dots ,K\}}
+	$$
+	Mahalanobis distance
+	$$
+	\Delta^{2}=(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
+	$$
+	Schur complement
+	$$
+	\left(\begin{array}{ll}
+	\mathbf{A} & \mathbf{B} \\
+	\mathbf{C} & \mathbf{D}
+	\end{array}\right)^{-1}=\left(\begin{array}{cc}
+	\mathbf{M} & -\mathbf{M B D}^{-1} \\
+	-\mathbf{D}^{-1} \mathbf{C M} & \mathbf{D}^{-1}+\mathbf{D}^{-1} \mathbf{C M B D}^{-1} 
+	\end{array}\right),\quad
+	\mathbf{M}=\left(\mathbf{A}-\mathbf{B D}^{-1} \mathbf{C}\right)^{-1}
+	$$
+	Partitioned Gaussians
+	$$
+	\begin{aligned}
+	\mathbf{x}=\left(\begin{array}{c}
+	\mathbf{x}_{a} \\
+	\mathbf{x}_{b}
+	\end{array}\right)&, \quad \boldsymbol{\mu}=\left(\begin{array}{c}
+	\boldsymbol{\mu}_{a} \\
+	\boldsymbol{\mu}_{b}
+	\end{array}\right)\\
+	\boldsymbol{\Sigma}=\left(\begin{array}{ll}
+	\boldsymbol{\Sigma}_{a a} & \boldsymbol{\Sigma}_{a b} \\
+	\boldsymbol{\Sigma}_{b a} & \boldsymbol{\Sigma}_{b b}
+	\end{array}\right)&, \quad \boldsymbol{\Lambda}=\left(\begin{array}{ll}
+	\boldsymbol{\Lambda}_{a a} & \boldsymbol{\Lambda}_{a b} \\
+	\boldsymbol{\Lambda}_{b a} & \boldsymbol{\Lambda}_{b b}
+	\end{array}\right)
+	\end{aligned}
+	$$
+	$$
+	\begin{aligned}
+	p\left(\mathbf{x}_{a} \mid \mathbf{x}_{b}\right) &=\mathcal{N}\left(\mathbf{x} \mid \boldsymbol{\mu}_{a \mid b}, \boldsymbol{\Lambda}_{a a}^{-1}\right) \\
+	\boldsymbol{\mu}_{a \mid b} &=\boldsymbol{\mu}_{a}-\boldsymbol{\Lambda}_{a a}^{-1} \boldsymbol{\Lambda}_{a b}\left(\mathbf{x}_{b}-\boldsymbol{\mu}_{b}\right)\\
+	p\left(\mathbf{x}_{a}\right)&=\mathcal{N}\left(\mathbf{x}_{a} \mid \boldsymbol{\mu}_{a}, \boldsymbol{\Sigma}_{a a}\right)
+	\end{aligned}
+	$$
+	population mean and population variance 
+	$$
+	\begin{aligned}
+	\mathbb{E}\left[\boldsymbol{\mu}_{\mathrm{ML}}\right] &=\boldsymbol{\mu} \\
+	\mathbb{E}\left[\boldsymbol{\Sigma}_{\mathrm{ML}}\right] &=\frac{N-1}{N} \boldsymbol{\Sigma} .
+	\end{aligned}
+	$$
 	
 	\pagebreak
 	\section{Week 3}
