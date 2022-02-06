@@ -367,6 +367,96 @@
 	$$
 	\widetilde{\boldsymbol{\Sigma}}=\frac{1}{N-1} \sum_{n=1}^{N}\left(\mathbf{x}_{n}-\boldsymbol{\mu}_{\mathrm{ML}}\right)\left(\mathbf{x}_{n}-\boldsymbol{\mu}_{\mathrm{ML}}\right)^{\mathrm{T}}
 	$$
+	Bayesian inference for the Gaussian of $\mu$
+	$$
+	p(\mathbf{X} \mid \mu)=\prod_{n=1}^{N} p\left(x_{n} \mid \mu\right)=\frac{1}{\left(2 \pi \sigma^{2}\right)^{N / 2}} \exp \left\{-\frac{1}{2 \sigma^{2}} \sum_{n=1}^{N}\left(x_{n}-\mu\right)^{2}\right\}
+	$$
+	$$
+	\mathbf{X}=\left\{x_{1}, \ldots, x_{N}\right\}
+	$$
+	prior distribution of $\mu$
+	$$
+	p(\mu)=\mathcal{N}\left(\mu \mid \mu_{0}, \sigma_{0}^{2}\right)
+	$$
+	posterior distribution of $\mu$, where $\sigma^2$ is known
+	$$
+	p(\mu \mid \mathbf{X}) \propto p(\mathbf{X} \mid \mu) p(\mu)
+	$$
+	$$
+	p(\mu \mid \mathbf{X})=\mathcal{N}\left(\mu \mid \mu_{N}, \sigma_{N}^{2}\right)
+	$$
+	$$
+	\begin{aligned}
+	\mu_{N} &=\frac{\sigma^{2}}{N \sigma_{0}^{2}+\sigma^{2}} \mu_{0}+\frac{N \sigma_{0}^{2}}{N \sigma_{0}^{2}+\sigma^{2}} \mu_{\mathrm{ML}} \\
+	\frac{1}{\sigma_{N}^{2}} &=\frac{1}{\sigma_{0}^{2}}+\frac{N}{\sigma^{2}}\\
+	\mu_{\mathrm{ML}}&=\frac{1}{N} \sum_{n=1}^{N} x_{n}
+	\end{aligned}
+	$$
+	if $\sigma_{0}^{2} \rightarrow \infty$, then
+	$$
+	\mu_{N}=\mu_{\mathrm{ML}}
+	$$
+	$$
+	\sigma_{N}^{2}=\sigma^{2} / N
+	$$
+	Bayesian inference for the Gaussian of $\lambda$
+	$$
+	p(\mathbf{X} \mid \lambda)=\prod_{n=1}^{N} \mathcal{N}\left(x_{n} \mid \mu, \lambda^{-1}\right) \propto \lambda^{N / 2} \exp \left\{-\frac{\lambda}{2} \sum_{n=1}^{N}\left(x_{n}-\mu\right)^{2}\right\}
+	$$
+	prior distribution of $\lambda$ (gamma distribution)
+	$$
+	\operatorname{Gam}(\lambda \mid a_0, b_0)=\frac{1}{\Gamma(a_0)} b_0^{a_0} \lambda^{a_0-1} \exp (-b_0 \lambda)
+	$$
+	$$
+	p(\lambda \mid \mathbf{X}) \propto \lambda^{a_{0}-1} \lambda^{N / 2} \exp \left\{-b_{0} \lambda-\frac{\lambda}{2} \sum_{n=1}^{N}\left(x_{n}-\mu\right)^{2}\right\}
+	$$
+	posterior distribution of $\lambda$, where $\mu$ is known
+	$$
+	p(\lambda \mid \mathbf{X})=\operatorname{Gam}\left(\lambda \mid a_{N}, b_{N}\right)
+	$$
+	$$
+	\begin{aligned}
+	a_{N} &=a_{0}+\frac{N}{2} \\
+	b_{N} &=b_{0}+\frac{1}{2} \sum_{n=1}^{N}\left(x_{n}-\mu\right)^{2}=b_{0}+\frac{N}{2} \sigma_{\mathrm{ML}}^{2} \\
+	\sigma_{\mathrm{ML}}^{2}&=\frac{1}{N} \sum_{n=1}^{N}\left(x_{n}-\mu\right)^{2}
+	\end{aligned}
+	$$
+	Bayesian inference for the Gaussian of $\mu$ and $\lambda$
+	$$
+	\begin{aligned}
+	p(\mathbf{X} \mid \mu, \lambda)&=\prod_{n=1}^{N}\left(\frac{\lambda}{2 \pi}\right)^{1 / 2} \exp \left\{-\frac{\lambda}{2}\left(x_{n}-\mu\right)^{2}\right\} \\
+	&\propto\left[\lambda^{1 / 2} \exp \left(-\frac{\lambda \mu^{2}}{2}\right)\right]^{N} \exp \left\{\lambda \mu \sum_{n=1}^{N} x_{n}-\frac{\lambda}{2} \sum_{n=1}^{N} x_{n}^{2}\right\}
+	\end{aligned}
+	$$
+	prior distribution of $\mu$ and $\lambda$ 
+	$$
+	\begin{aligned}
+	p(\mu, \lambda) &\propto\left[\lambda^{1 / 2} \exp \left(-\frac{\lambda \mu^{2}}{2}\right)\right]^{\beta} \exp \{c \lambda \mu-d \lambda\} \\
+	&=\exp \left\{-\frac{\beta \lambda}{2}(\mu-c / \beta)^{2}\right\} \lambda^{\beta / 2} \exp \left\{-\left(d-\frac{c^{2}}{2 \beta}\right) \lambda\right\}
+	\end{aligned}
+	$$
+	$$
+	p(\mu, \lambda)=\mathcal{N}\left(\mu \mid \mu_{0},(\beta \lambda)^{-1}\right) \operatorname{Gam}(\lambda \mid a, b)
+	$$
+	$$
+	\mu_{0}=c / \beta, \quad a=1+\beta / 2, \quad b=d-\frac{c^{2}}{2\beta}
+	$$
+	Bayesian inference for the multivariate Gaussian distribution for $\boldsymbol{\mu}$ \\
+	known precision $\boldsymbol{\Lambda}$
+	$$
+	\mathcal{N}\left(\mathbf{x} \mid \boldsymbol{\mu}, \boldsymbol{\Lambda}^{-1}\right)
+	$$
+	Wishart prior distribution
+	$$
+	\mathcal{W}(\boldsymbol{\Lambda} \mid \mathbf{W}, \nu)=B|\boldsymbol{\Lambda}|^{(\nu-D-1) / 2} \exp \left(-\frac{1}{2} \operatorname{Tr}\left(\mathbf{W}^{-1} \boldsymbol{\Lambda}\right)\right)
+	$$
+	$$
+	B(\mathbf{W}, \nu)=|\mathbf{W}|^{-\nu / 2}\left(2^{\nu D / 2} \pi^{D(D-1) / 4} \prod_{i=1}^{D} \Gamma\left(\frac{\nu+1-i}{2}\right)\right)^{-1}
+	$$
+	normal-Wishart (Gaussian-Wishart) prior distribution
+	$$
+	p\left(\boldsymbol{\mu}, \boldsymbol{\Lambda} \mid \boldsymbol{\mu}_{0}, \beta, \mathbf{W}, \nu\right)=\mathcal{N}\left(\boldsymbol{\mu} \mid \boldsymbol{\mu}_{0},(\beta \boldsymbol{\Lambda})^{-1}\right) \mathcal{W}(\boldsymbol{\Lambda} \mid \mathbf{W}, \nu)
+	$$
 	
 	\pagebreak
 	\section{Week 3}
@@ -395,6 +485,63 @@
 	$$
 	$$
 	\sigma(a)=\frac{1}{1+\exp (-a)}
+	$$
+	$$
+	\tanh (a)=2 \sigma(a)-1
+	$$
+	Gaussian noise model
+	$$
+	\begin{aligned}
+	t&=y(\mathbf{x}, \mathbf{w})+\epsilon \\
+	p(t \mid \mathbf{x}, \mathbf{w}, \beta)&=\mathcal{N}\left(t \mid y(\mathbf{x}, \mathbf{w}), \beta^{-1}\right)\\
+	p(\mathbf{t} \mid \mathbf{X}, \mathbf{w}, \beta)&=\prod_{n=1}^{N} \mathcal{N}\left(t_{n} \mid \mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right), \beta^{-1}\right)\\
+	\ln p(\mathbf{t} \mid \mathbf{w}, \beta) &=\sum_{n=1}^{N} \ln \mathcal{N}\left(t_{n} \mid \mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right), \beta^{-1}\right) \\
+	&=\frac{N}{2} \ln \beta-\frac{N}{2} \ln (2 \pi)-\beta E_{D}(\mathbf{w})
+	\end{aligned}
+	$$
+	where $E_{D}(\mathbf{w})$ is the sum-of-squares error function
+	$$
+	E_{D}(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{t_{n}-\mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)\right\}^{2}
+	$$
+	the maximum likelihood solution; differentiate with respect to $\mathbf{w}$
+	$$
+	\nabla \ln p(\mathbf{t} \mid \mathbf{w}, \beta)=\sum_{n=1}^{N}\left\{t_{n}-\mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)\right\} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)^{\mathrm{T}}
+	$$
+	$$
+	0=\sum_{n=1}^{N} t_{n} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)^{\mathrm{T}}-\mathbf{w}^{\mathrm{T}}\left(\sum_{n=1}^{N} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right) \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)^{\mathrm{T}}\right)
+	$$
+	$$
+	\mathbf{w}_{\mathrm{ML}}=\left(\boldsymbol{\Phi}^{\mathrm{T}} \boldsymbol{\Phi}\right)^{-1} \boldsymbol{\Phi}^{\mathrm{T}} \mathbf{t}
+	$$
+	differentiate with respect to $\beta$
+	$$
+	\frac{1}{\beta_{\mathrm{ML}}}=\frac{1}{N} \sum_{n=1}^{N}\left\{t_{n}-\mathbf{w}_{\mathrm{ML}}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)\right\}^{2}
+	$$
+	where $\boldsymbol{\Phi}$ is the design matrix; $
+	\Phi_{n j}=\phi_{j}\left(\mathbf{x}_{n}\right)$ ($\text{matrix}_{\text{ row, col}}$)
+	$$
+	\boldsymbol{\Phi}=\left(\begin{array}{cccc}
+	\phi_{0}\left(\mathbf{x}_{1}\right) & \phi_{1}\left(\mathbf{x}_{1}\right) & \cdots & \phi_{M-1}\left(\mathbf{x}_{1}\right) \\
+	\phi_{0}\left(\mathbf{x}_{2}\right) & \phi_{1}\left(\mathbf{x}_{2}\right) & \cdots & \phi_{M-1}\left(\mathbf{x}_{2}\right) \\
+	\vdots & \vdots & \ddots & \vdots \\
+	\phi_{0}\left(\mathbf{x}_{N}\right) & \phi_{1}\left(\mathbf{x}_{N}\right) & \cdots & \phi_{M-1}\left(\mathbf{x}_{N}\right)
+	\end{array}\right)
+	$$
+	Moore-Penrose pseudo-inverse of the matrix $\boldsymbol{\Phi}$
+	$$
+	\boldsymbol{\Phi}^{\dagger} \equiv\left(\boldsymbol{\Phi}^{\mathrm{T}} \boldsymbol{\Phi}\right)^{-1} \boldsymbol{\Phi}^{\mathrm{T}}
+	$$
+	if $\boldsymbol{\Phi}$ is square and invertible, then
+	$$
+	(\mathbf{A B})^{-1}=\mathbf{B}^{-1} \mathbf{A}^{-1}
+	$$	
+	$$(\boldsymbol{\Phi}^{\mathrm{T}} \boldsymbol{\Phi})^{-1}=\boldsymbol{\Phi}^{-1} (\boldsymbol{\Phi}^{\mathrm{T}})^{-1}
+	$$
+	$$(\boldsymbol{\Phi}^{\mathrm{T}} \boldsymbol{\Phi})^{-1}
+	\boldsymbol{\Phi}^{\mathrm{T}}=\boldsymbol{\Phi}^{-1}((\boldsymbol{\Phi}^{\mathrm{T}})^{-1}\boldsymbol{\Phi}^{\mathrm{T}})=\boldsymbol{\Phi}^{-1}\mathbf{I}=\boldsymbol{\Phi}^{-1}
+	$$
+	$$
+	\boldsymbol{\Phi}^{\dagger} \equiv \boldsymbol{\Phi}^{-1}
 	$$
 	
 	\pagebreak
