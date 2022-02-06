@@ -122,7 +122,7 @@
 	$$
 	Gaussian integral
 	$$
-	{\displaystyle \int _{-\infty }^{\infty }e^{-a(x+b)^{2}}\,dx={\sqrt {\frac {\pi }{a}}}.}
+	{\displaystyle \int _{-\infty }^{\infty }e^{-a(x+b)^{2}}\,dx={\sqrt {\frac {\pi }{a}}}}
 	$$
 	multivariate Gaussian distribution
 	$$
@@ -246,7 +246,7 @@
 	$$
 	\begin{aligned}
 	\mathrm{KL}(p \| q) &=-\int p(\mathbf{x}) \ln q(\mathbf{x}) \mathrm{d} \mathbf{x}-\left(-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \\
-	&=-\int p(\mathbf{x}) \ln \left\{\frac{q(\mathbf{x})}{p(\mathbf{x})}\right\} \mathrm{d} \mathbf{x} .
+	&=-\int p(\mathbf{x}) \ln \left\{\frac{q(\mathbf{x})}{p(\mathbf{x})}\right\} \mathrm{d} \mathbf{x} 
 	\end{aligned}
 	$$
 	$$
@@ -303,7 +303,7 @@
 	{\displaystyle f\left(x_{1},\ldots ,x_{K};\alpha _{1},\ldots ,\alpha _{K}\right)={\frac {1}{\mathrm {B} ({\boldsymbol {\alpha }})}}\prod _{i=1}^{K}x_{i}^{\alpha _{i}-1}}
 	$$
 	$$
-	{\displaystyle \mathrm {B} ({\boldsymbol {\alpha }})={\frac {\prod \limits _{i=1}^{K}\Gamma (\alpha _{i})}{\Gamma \left(\sum \limits _{i=1}^{K}\alpha _{i}\right)}},\qquad {\boldsymbol {\alpha }}=(\alpha _{1},\ldots ,\alpha _{K}).}
+	{\displaystyle \mathrm {B} ({\boldsymbol {\alpha }})={\frac {\prod \limits _{i=1}^{K}\Gamma (\alpha _{i})}{\Gamma \left(\sum \limits _{i=1}^{K}\alpha _{i}\right)}},\qquad {\boldsymbol {\alpha }}=(\alpha _{1},\ldots ,\alpha _{K})}
 	$$
 	$$
 	{\displaystyle \sum _{i=1}^{K}x_{i}=1{\mbox{ and }}x_{i}\geq 0{\mbox{ for all }}i\in \{1,\dots ,K\}}
@@ -546,12 +546,30 @@
 	
 	\pagebreak
 	\section{Week 4}
+	posterior distribution of discrete classes
+	$$
+	p\left(\mathcal{C}_{k} \mid \mathbf{x}\right)=\frac{p\left(\mathbf{x} \mid \mathcal{C}_{k}\right) p\left(\mathcal{C}_{k}\right)}{p(\mathbf{x})}
+	$$
+	transform the linear function of $\mathbf{w}$ using a nonlinear function $f(\cdot)$
+	$$
+	y(\mathbf{x})=f\left(\mathbf{w}^{\mathrm{T}} \mathbf{x}+w_{0}\right)
+	$$
 	
 	\pagebreak
 	\section{Week 5}
 	
+	 
 	\pagebreak
 	\section{Week 6}
+	kernel function
+	$$
+	k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\phi(\mathbf{x})^{\mathrm{T}} \phi\left(\mathbf{x}^{\prime}\right)
+	$$
+	the kernel is a symmetric function of its arguments
+	$$
+	k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=k\left(\mathbf{x}^{\prime}, \mathbf{x}\right)
+	$$
+	
 	
 	\pagebreak
 	\section{Week 7}
