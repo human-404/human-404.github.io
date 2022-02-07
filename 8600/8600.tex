@@ -612,6 +612,40 @@
 	$$
 	
 	\pagebreak
+	
+	${}$\\
+	kernel construction
+	$$
+	k(\mathbf{x}, \mathbf{z})=\left(\mathbf{x}^{\mathrm{T}} \mathbf{z}\right)^{2}
+	$$
+	where 
+	$$
+	\begin{aligned}
+	k(\mathbf{x}, \mathbf{z}) &=\left(\mathbf{x}^{\mathrm{T}} \mathbf{z}\right)^{2}=\left(x_{1} z_{1}+x_{2} z_{2}\right)^{2} \\
+	&=x_{1}^{2} z_{1}^{2}+2 x_{1} z_{1} x_{2} z_{2}+x_{2}^{2} z_{2}^{2} \\
+	&=\left(x_{1}^{2}, \sqrt{2} x_{1} x_{2}, x_{2}^{2}\right)\left(z_{1}^{2}, \sqrt{2} z_{1} z_{2}, z_{2}^{2}\right)^{\mathrm{T}} \\
+	&=\phi(\mathbf{x})^{\mathrm{T}} \boldsymbol{\phi}(\mathbf{z})
+	\end{aligned}
+	$$
+	$$
+	\phi(\mathbf{x})=\left(x_{1}^{2}, \sqrt{2} x_{1} x_{2}, x_{2}^{2}\right)^{\mathrm{T}}
+	$$
+	compute $\left(\mathbf{x}^{\mathrm{T}} \mathbf{z}\right)^{2}$ instead of explicitly applying the transformations\\
+	which is less computationally expensive 
+	$$
+	k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) \text { is a valid kernel }
+	$$
+	$$
+	\leftrightarrow
+	$$
+	$$
+	\text { the Gram matrix } \mathbf{K}\text { is a positive semidefinite}
+	$$
+	$$
+	\text{for all possible choices of the set }\left\{\mathbf{x}_{n}\right\}
+	$$
+	
+	\pagebreak
 	\section{Week 7}
 	
 	\pagebreak
