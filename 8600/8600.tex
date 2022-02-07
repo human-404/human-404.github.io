@@ -563,13 +563,53 @@
 	\section{Week 6}
 	kernel function
 	$$
-	k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\phi(\mathbf{x})^{\mathrm{T}} \phi\left(\mathbf{x}^{\prime}\right)
+	k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\boldsymbol{\phi}(\mathbf{x})^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}^{\prime}\right)
 	$$
 	the kernel is a symmetric function of its arguments
 	$$
 	k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=k\left(\mathbf{x}^{\prime}, \mathbf{x}\right)
 	$$
-	
+	reformulation of linear regression model with a regularized sum-of-squares error\\
+	dual representations
+	$$
+	J(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{\mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)-t_{n}\right\}^{2}+\frac{\lambda}{2} \mathbf{w}^{\mathrm{T}} \mathbf{w}
+	$$
+	solve for $\mathbf{w}$
+	$$
+	\mathbf{w}=-\frac{1}{\lambda} \sum_{n=1}^{N}\left\{\mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)-t_{n}\right\} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)=\sum_{n=1}^{N} a_{n} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)=\mathbf{\Phi}^{\mathrm{T}} \mathbf{a}
+	$$
+	$$
+	a_{n}=-\frac{1}{\lambda}\left\{\mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{n}\right)-t_{n}\right\}
+	$$
+	where $\Phi$ is the design matrix, whose $n^{\text {th }}$ row is given by $\boldsymbol{\phi}\left(\mathbf{x}_{n}\right)^{\mathrm{T}}$\\
+	substitute ``$\mathbf{w}=\boldsymbol{\Phi}^{\mathrm{T}} \mathbf{a}$" into $J(\mathbf{w})$
+	$$
+	J(\mathbf{a})=\frac{1}{2} \mathbf{a}^{\mathrm{T}} \boldsymbol{\Phi} \boldsymbol{\Phi}^{\mathrm{T}} \boldsymbol{\Phi} \boldsymbol{\Phi}^{\mathrm{T}} \mathbf{a}-\mathbf{a}^{\mathrm{T}} \boldsymbol{\Phi} \boldsymbol{\Phi}^{\mathrm{T}} \mathbf{t}+\frac{1}{2} \mathbf{t}^{\mathrm{T}} \mathbf{t}+\frac{\lambda}{2} \mathbf{a}^{\mathrm{T}} \boldsymbol{\Phi} \boldsymbol{\Phi}^{\mathrm{T}} \mathbf{a}
+	$$
+	Gram matrix ($\boldsymbol{\Phi} \in \mathbb{R}^{N\times M}$, $
+	\mathbf{K} \in \mathbb{R}^{N\times N}$)
+	$$
+	\mathbf{K}=\boldsymbol{\Phi} \boldsymbol{\Phi}^{\mathrm{T}}
+	$$
+	$$
+	K_{n m}=\boldsymbol{\phi}\left(\mathbf{x}_{n}\right)^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}_{m}\right)=k\left(\mathbf{x}_{n}, \mathbf{x}_{m}\right)
+	$$
+	substitute ``$\mathbf{K}=\boldsymbol{\Phi} \boldsymbol{\Phi}^{\mathrm{T}}$" into $J(\mathbf{a})$
+	$$
+	J(\mathbf{a})=\frac{1}{2} \mathbf{a}^{\mathrm{T}} \mathbf{K K} \mathbf{a}-\mathbf{a}^{\mathrm{T}} \mathbf{K} \mathbf{t}+\frac{1}{2} \mathbf{t}^{\mathrm{T}} \mathbf{t}+\frac{\lambda}{2} \mathbf{a}^{\mathrm{T}} \mathbf{K} \mathbf{a}
+	$$
+	solve for $\mathbf{a}$
+	$$
+	\mathbf{a}=\left(\mathbf{K}+\lambda \mathbf{I}_{N}\right)^{-1} \mathbf{t}
+	$$
+	substitute the solution into the linear regression model\\
+	prediction for a new input $\mathbf{x}$
+	$$
+	y(\mathbf{x})=\mathbf{w}^{\mathrm{T}} \boldsymbol{\phi}(\mathbf{x})=\mathbf{a}^{\mathrm{T}} \boldsymbol{\Phi} \boldsymbol{\phi}(\mathbf{x})=\mathbf{k}(\mathbf{x})^{\mathrm{T}}\left(\mathbf{K}+\lambda \mathbf{I}_{N}\right)^{-1} \mathbf{t}
+	$$
+	$$
+	\mathbf{k}(\mathbf{x})\in \mathbb{R}^N, \text{ where } k_{n}(\mathbf{x})=k\left(\mathbf{x}_{n}, \mathbf{x}\right)=\boldsymbol{\phi}(\mathbf{x}_n)^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}\right)
+	$$
 	
 	\pagebreak
 	\section{Week 7}
@@ -589,6 +629,24 @@
 	1 & \text { if } k=\arg \min _{j}\left\|\mathbf{x}_{n}-\boldsymbol{\mu}_{j}\right\|^{2} \\
 	0 & \text { otherwise }
 	\end{array}\right.
+	$$
+	differentiate the objective function $J$ with respect to $\boldsymbol{\mu}_{k}$ for every $k$\\setting the derivative to zero
+	$$
+	2 \sum_{n=1}^{N} r_{n k}\left(\mathbf{x}_{n}-\boldsymbol{\mu}_{k}\right)=0
+	$$
+	solve for $\boldsymbol{\mu}_{k}$
+	$$
+	\boldsymbol{\mu}_{k}=\frac{\sum_{n} r_{n k} \mathbf{x}_{n}}{\sum_{n} r_{n k}}
+	$$
+	objective function; where $
+	\mathcal{V}\left(\mathbf{x}, \mathbf{x}^{\prime}\right)
+	$ is a general dissimilarity measure 
+	$$
+	\widetilde{J}=\sum_{n=1}^{N} \sum_{k=1}^{K} r_{n k} \mathcal{V}\left(\mathbf{x}_{n}, \boldsymbol{\mu}_{k}\right)
+	$$
+	Gaussian mixture model
+	$$
+	p(\mathbf{x})=\sum_{k=1}^{K} \pi_{k} \mathcal{N}\left(\mathbf{x} \mid \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)
 	$$
 	
 	\pagebreak
