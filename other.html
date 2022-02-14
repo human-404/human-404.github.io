@@ -7,8 +7,85 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="https://wattlecourses.anu.edu.au/my/">wattle</a>
-    <a href="https://piazza.com">piazza</a>
+    <a href="https://wattlecourses.anu.edu.au/my/" target="_blank">Wattle</a>
+    <br>
+    <a href="https://piazza.com" target="_blank">Piazza</a>
+
+
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36682" target="_blank">COMP4670/COMP8600- Statistical Machine Learning - Sem 1 2022</a>
+    <br>
+    <a href="https://teams.microsoft.com/l/team/19%3a4ryjpK6hSlyJTMdBt6R4PaMp-jMfxNc1Ksnih5QTnP41%40thread.tacv2/conversations?groupId=a4ee312b-f0eb-49e0-994b-534f9e11f537&tenantId=e37d725c-ab5c-4624-9ae5-f0533e486437" target="_blank">Monday Lecture</a> 
+    (<h id="COMP8600-Monday-10"></h>:00 - <h id="COMP8600-Monday-11"></h>:30)
+    <br>
+    <a href="https://teams.microsoft.com/l/team/19%3a4ryjpK6hSlyJTMdBt6R4PaMp-jMfxNc1Ksnih5QTnP41%40thread.tacv2/conversations?groupId=a4ee312b-f0eb-49e0-994b-534f9e11f537&tenantId=e37d725c-ab5c-4624-9ae5-f0533e486437" target="_blank">Friday Lecture</a> 
+    (<h id="COMP8600-Friday-12"></h>:00 - <h id="COMP8600-Friday-13"></h>:30)
+
     
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36685" target="_blank">COMP8260/ENGN8260- Professional Practice 2 - Sem 1 2022</a>
+    <br>
+    <a>Tuesday Seminar</a> 
+    (<h id="COMP8260-Tuesday-16"></h>:00 - <h id="COMP8260-Tuesday-17"></h>:30)
+
+
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36663" target="_blank">COMP2100/COMP6442 - Software Design Methodologies - Sem 1 2022</a>
+    <br>
+    <a href="https://anu.zoom.us/j/83833517962?pwd=aWZ1M3NMTW5FSmYxclFQdlhrZFpGdz09" target="_blank">Monday Lecture</a> 
+    (<h id="COMP6442-Monday-16"></h>:00 - <h id="COMP6442-Monday-18"></h>:30) password: study&pass
+
+
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36668" target="_blank">COMP2620/COMP6262/PHIL2080 - Logic - Sem 1 2022</a>
+    <br>
+    <a href="https://anu.zoom.us/j/87101103678?pwd=UEZaR1FsTzZnclhDRnY2aEFEODJIQT09" target="_blank">Monday Lecture</a> 
+    (<h id="COMP6262-Monday-10"></h>:00 - <h id="COMP6262-Monday-11"></h>:00)
+    <br>
+    <a href="https://anu.zoom.us/j/84448651488?pwd=L0l4b0JXREVEMlFFa1pZdS9uUVpyZz09" target="_blank">Tuesday Lecture</a> 
+    (<h id="COMP6262-Tuesday-12"></h>:00 - <h id="COMP6262-Tuesday-13"></h>:00)
+
+    <br><br>
+    difference in time zone:
+    <h id="diffTimeZone">diffTimeZone</h> hours
+
+    <script>
+    function getOffsetBetweenTimezonesForDate(date, timezone1, timezone2) {
+        const timezone1Date = convertDateToAnotherTimeZone(date, timezone1);
+        const timezone2Date = convertDateToAnotherTimeZone(date, timezone2);
+        return timezone1Date.getTime() - timezone2Date.getTime();
+    }
+      
+    function convertDateToAnotherTimeZone(date, timezone) {
+        const dateString = date.toLocaleString('en-US', {
+          timeZone: timezone
+        });
+        return new Date(dateString);
+    }
+
+    let offset = getOffsetBetweenTimezonesForDate(new Date(), 'Asia/Shanghai', 'Australia/Canberra');
+    let offsetHour = offset / 3600000;
+    document.getElementById("diffTimeZone").innerHTML = offsetHour;
+
+    const courses = ["COMP8600", "COMP8260", "COMP6442", "COMP6262"];
+    const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+    const hours = ["6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18"];
+
+    for (const course of courses) {
+        for (const weekday of weekdays) {
+            for (const hour of hours) {
+                const elementID = '' + course + "-" + weekday + "-" + hour;
+                console.log(elementID);
+                var element = document.getElementById(elementID); 
+                if (typeof(element) != 'undefined' && element != null) {
+                    console.log(true);
+                    element.innerHTML = offsetHour + parseInt(hour);
+                }
+            }
+        }
+    }
+
+
+    </script>
 </body>
 </html>
