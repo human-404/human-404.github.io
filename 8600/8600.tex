@@ -23,7 +23,7 @@
 	\tableofcontents
 	
 	\pagebreak
-	\section{Week 1}
+	\section{INTRODUCTION}
 	
 	polynomial curve fitting
 	$$
@@ -275,7 +275,7 @@
 	$$
 	
 	\pagebreak
-	\section{Week 2}
+	\section{PROBABILITY DISTRIBUTIONS}
 	Bernoulli distribution
 	$$
 	\operatorname{Bern}(x \mid \mu)=\mu^{x}(1-\mu)^{1-x}
@@ -459,7 +459,7 @@
 	$$
 	
 	\pagebreak
-	\section{Week 3}
+	\section{LINEAR MODELS FOR REGRESSION}
 	simple linear regression
 	$$
 	y(\mathbf{x}, \mathbf{w})=w_{0}+w_{1} x_{1}+\ldots+w_{D} x_{D}
@@ -545,7 +545,7 @@
 	$$
 	
 	\pagebreak
-	\section{Week 4}
+	\section{LINEAR MODELS FOR CLASSIFICATION}
 	posterior distribution of discrete classes
 	$$
 	p\left(\mathcal{C}_{k} \mid \mathbf{x}\right)=\frac{p\left(\mathbf{x} \mid \mathcal{C}_{k}\right) p\left(\mathcal{C}_{k}\right)}{p(\mathbf{x})}
@@ -554,13 +554,17 @@
 	$$
 	y(\mathbf{x})=f\left(\mathbf{w}^{\mathrm{T}} \mathbf{x}+w_{0}\right)
 	$$
-	
+	two classes $\mathcal{C}_{1}$ and $\mathcal{C}_{2}$
+	$$
+	y(\mathbf{x})=\mathbf{w}^{\mathrm{T}} \mathbf{x}+w_{0}
+	$$
+	input vector $\mathbf{x}$ is assigned to class $\mathcal{C}_{1}$ if $y(\mathbf{x}) \geqslant 0$ and to class $\mathcal{C}_{2}$ otherwise.
 	\pagebreak
-	\section{Week 5}
+	\section{NEURAL NETWORKS}
 	
 	 
 	\pagebreak
-	\section{Week 6}
+	\section{KERNEL METHODS}
 	kernel function
 	$$
 	k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\boldsymbol{\phi}(\mathbf{x})^{\mathrm{T}} \boldsymbol{\phi}\left(\mathbf{x}^{\prime}\right)
@@ -646,13 +650,13 @@
 	$$
 	
 	\pagebreak
-	\section{Week 7}
+	\section{SPARSE KERNEL MACHINES}
 	
 	\pagebreak
-	\section{Week 8}
+	\section{GRAPHICAL MODELS}
 	
 	\pagebreak
-	\section{Week 9}
+	\section{MIXTURE MODELS AND EM}
 	objective function (distortion measure)
 	$$
 	J=\sum_{n=1}^{N} \sum_{k=1}^{K} r_{n k}\left\|\mathbf{x}_{n}-\boldsymbol{\mu}_{k}\right\|^{2}
@@ -684,10 +688,10 @@
 	$$
 	
 	\pagebreak
-	\section{Week 10}
+	\section{APPROXIMATE INFERENCE}
 	
 	\pagebreak
-	\section{Week 11}
+	\section{SAMPLING METHODS}
 	the expectation of function $f(\mathbf{z})$ with respect to a probability distribution $p(\mathbf{z})$
 	$$
 	\mathbb{E}[f]=\int f(\mathbf{z}) p(\mathbf{z}) \mathrm{d} \mathbf{z}
@@ -698,6 +702,6 @@
 	$$
 	
 	\pagebreak
-	\section{Week 12}
+	\section{CONTINUOUS LATENT VARIABLES}
 	
 \end{document}
