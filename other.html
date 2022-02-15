@@ -150,15 +150,15 @@
         for (const courseTime of courseTimes) {
             if (courseTime.includes(todayWeek)) {
                 if (beginTime) {
-                    if (true || parseInt(courseTime.slice(-4)) < parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
+                    if (parseInt(courseTime.slice(-4)) < parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
                         beginTime = false;
                         collections.push(courseTime);
                     }
                 } else {
-                    if (true || parseInt(courseTime.slice(-4)) > parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
+                    if (parseInt(courseTime.slice(-4)) > parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
                         collections.push(courseTime);
                         for (const collection of collections) {
-                            document.getElementById(collection).style.color = 'white';
+                            document.getElementById(collection).style.color = 'pink';
                         }
                         let str = document.getElementById(collections[1]).innerHTML;
                         document.getElementById("gooey-button").firstChild.data = courseTime.substring(0, 8) + " " + document.getElementById(collections[0]).innerHTML + " - " + str.substring(str.length - 5);
