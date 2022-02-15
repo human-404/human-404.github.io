@@ -150,12 +150,12 @@
         for (const courseTime of courseTimes) {
             if (courseTime.includes(todayWeek)) {
                 if (beginTime) {
-                    if (parseInt(courseTime.slice(-4)) < parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
+                    if (true || parseInt(courseTime.slice(-4)) < parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
                         beginTime = false;
                         collections.push(courseTime);
                     }
                 } else {
-                    if (parseInt(courseTime.slice(-4)) > parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
+                    if (true || parseInt(courseTime.slice(-4)) > parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
                         collections.push(courseTime);
                         for (const collection of collections) {
                             document.getElementById(collection).style.color = 'white';
