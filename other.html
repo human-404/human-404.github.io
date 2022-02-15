@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="otherStyle.css">
 </head>
 <body>
     <a href="https://wattlecourses.anu.edu.au/my/" target="_blank">Wattle</a>
@@ -20,33 +19,8 @@
     <br>
     <a>difference in time zone:</a>
     <a id="diffTimeZone">diffTimeZone</a> <a>hours</a>
-    <br><br>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <defs>
-            <filter id="gooey">
-                <!-- in="sourceGraphic" -->
-                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
-                <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
-            </filter>
-        </defs>
-    </svg>
-
-    <button id="gooey-button">
-        F*** Awesome
-        <span class="bubbles">
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-        </span>
-    </button>
+    <br>
+    <button id="gooey-button">hello</button>
 
     <br><br>
     <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36682" target="_blank">COMP4670/COMP8600- Statistical Machine Learning - Sem 1 2022</a>
@@ -172,7 +146,7 @@
         beginTime = true;
         collections = [];
 
-        document.getElementById("gooey-button").firstChild.data = "☕💻";
+        document.getElementById("gooey-button").firstChild.data = todayWeek;
         for (const courseTime of courseTimes) {
             if (courseTime.includes(todayWeek)) {
                 if (beginTime) {
