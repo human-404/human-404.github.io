@@ -1,6 +1,5 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{hyperref}
  
  \usepackage{xcolor}
  \usepackage{pagecolor}
@@ -15,12 +14,13 @@
  
 \title{scribble}
  \author{u6451429}
+ \usepackage{hyperref}
  
 \begin{document}
 	
-\newcommand{\subsectional}[1]{\pagebreak\addcontentsline{toc}{subsection}{#1}\subsection*{#1}}
+\newcommand{\subsectional}[1]{\pagebreak${}$\subsection*{#1}\addcontentsline{toc}{subsection}{#1}}
 
-\newcommand{\sectional}[1]{\pagebreak\addcontentsline{toc}{section}{#1}\section*{#1}}
+\newcommand{\sectional}[1]{\pagebreak${}$\section*{#1}\addcontentsline{toc}{section}{#1}}
 
 \maketitle
   
