@@ -558,7 +558,11 @@
 	$$
 	y(\mathbf{x})=\mathbf{w}^{\mathrm{T}} \mathbf{x}+w_{0}
 	$$
-	input vector $\mathbf{x}$ is assigned to class $\mathcal{C}_{1}$ if $y(\mathbf{x}) \geqslant 0$ and to class $\mathcal{C}_{2}$ otherwise.
+	input vector $\mathbf{x}$ is assigned to class $\mathcal{C}_{1}$ if $y(\mathbf{x}) \geqslant 0$ and to class $\mathcal{C}_{2}$ otherwise.\\ \\
+	In Euclidean space, two vectors are orthogonal iff their dot product is zero.\\ \\
+	Consider two points $\mathbf{x}_{\mathrm{A}}$ and $\mathbf{x}_{\mathrm{B}}$ both of which lie on the decision surface, then $y\left(\mathbf{x}_{\mathrm{A}}\right)=y\left(\mathbf{x}_{\mathrm{B}}\right)=0$, $\mathbf{w}^{\mathrm{T}}\left(\mathbf{x}_{\mathrm{A}}-\mathbf{x}_{\mathrm{B}}\right)=0$ and hence the vector $\mathbf{w}$ is orthogonal to the decision surface. \\ \\ 
+	the signed orthogonal distance of a general point $\mathbf{x}$ from the decision surface is given by $y(\mathbf{x}) /\|\mathbf{w}\|$.
+	
 	\pagebreak
 	\section{NEURAL NETWORKS}
 	
