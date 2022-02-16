@@ -27,6 +27,32 @@
 \tableofcontents
 
 \sectional{COMP8600}
+\subsectional{1.31}
+
+Consider two variables $\mathbf{x}$ and $\mathbf{y}$ having joint distribution $p(\mathbf{x}, \mathbf{y})$. Show that the differential entropy of this pair of variables satisfies
+$$
+\mathrm{H}[\mathbf{x}, \mathbf{y}] \leqslant \mathrm{H}[\mathbf{x}]+\mathrm{H}[\mathbf{y}]
+$$
+with equality if, and only if, $\mathbf{x}$ and $\mathbf{y}$ are statistically independent.
+$$\mathrm{H}[\mathbf{x}, \mathbf{y}]=-\iint p(\mathbf{x},\mathbf{y}) \ln p(\mathbf{x},\mathbf{y}) \mathrm{d} \mathbf{y} \mathrm{d}\mathbf{x}=\mathrm{H}[\mathbf{y} \mid \mathbf{x}]+\mathrm{H}[\mathbf{x}]$$
+
+$$\mathrm{H}[\mathbf{y} \mid \mathbf{x}]=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x}$$
+
+$$\mathrm{H}[\mathbf{y}]=-\int p(\mathbf{y}) \ln p(\mathbf{y}) \mathrm{d} \mathbf{y}$$
+
+$$\mathrm{H}[\mathbf{x}]=-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}$$
+then
+$$
+\mathrm{H}[\mathbf{x}, \mathbf{y}] \leqslant \mathrm{H}[\mathbf{x}]+\mathrm{H}[\mathbf{y}]\equiv\mathrm{H}[y\mid\mathbf{x}]+\mathrm{H}[\mathbf{x}] \leqslant \mathrm{H}[\mathbf{x}]+\mathrm{H}[\mathbf{y}]\equiv\mathrm{H}[y\mid\mathbf{x}] \leqslant\mathrm{H}[\mathbf{y}]
+$$
+if $\mathbf{x}$ and $\mathbf{y}$ are statistically independent, then
+$$\begin{aligned}\mathrm{H}[\mathbf{y} \mid \mathbf{x}]&=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x} \\ &=-\iint p(\mathbf{y}) p(\mathbf{x}) \ln p(\mathbf{y}) \mathrm{d} \mathbf{y} \mathrm{d}\mathbf{x}\\&=-\int p(\mathbf{y})\ln p(\mathbf{y}) \left(\int p(\mathbf{x}) \mathrm{d} \mathbf{x} \right)\mathrm{d} \mathbf{y}\\&=-\int p(\mathbf{y})\ln p(\mathbf{y})\mathrm{d} \mathbf{y}\\&=\mathrm{H}[\mathbf{y}]\end{aligned}$$
+if $\mathbf{x}$ and $\mathbf{y}$ are NOT statistically independent, then
+$$\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y}|\mathbf{x}] = \mathrm{I}[\mathbf{x},\mathbf{y}]\geq0$$
+
+$$\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y}|\mathbf{x}] \geq0$$
+
+$$ \mathrm{H}[\mathbf{y}|\mathbf{x}] \leq \mathrm{H}[\mathbf{y}]$$
 \subsectional{1.96}
 Entropy \\
 Stirling Approximation
@@ -41,7 +67,22 @@ $\begin{aligned} H &=\frac{1}{N} \ln W \\ &=\frac{1}{N} \ln N !-\frac{1}{N} \sum
 &=\sum_{i}\left(\frac{n_{i}}{N} \ln \frac{N}{n_{i}}\right) \\
 &=-\sum_{i} \frac{n_{i}}{N} \ln \frac{n_{i}}{N}\\
 &=-\sum_{i} p_i\ln(p_i)\end{aligned}$
-
+\subsectional{1.41}
+ Using the sum and product rules of probability, show that the mutual information $I(\mathbf{x}, \mathbf{y})$ satisfies the relation (1.121).
+ 
+ $$\mathrm{I}[\mathbf{x}, \mathbf{y}] =-\iint p(\mathbf{x}, \mathbf{y}) \ln \left(\frac{p(\mathbf{x}) p(\mathbf{y})}{p(\mathbf{x}, \mathbf{y})}\right) \mathrm{d} \mathbf{x} \mathrm{d} \mathbf{y} $$
+ 
+ $$
+ \mathrm{I}[\mathbf{x}, \mathbf{y}]=\mathrm{H}[\mathbf{x}]-\mathrm{H}[\mathbf{x} \mid \mathbf{y}]=\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y} \mid \mathbf{x}]
+ $$
+ 
+ $$\mathrm{H}[\mathbf{y} \mid \mathbf{x}]=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x}$$
+ 
+ $$
+ \mathrm{H}[\mathbf{y}]=-\int p(\mathbf{y}) \ln p(\mathbf{y}) \mathrm{d} \mathbf{y} $$
+ 
+ $$\begin{aligned}\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y} \mid \mathbf{x}]&=-\int p(\mathbf{y}) \ln p(\mathbf{y}) \mathrm{d} \mathbf{y} -\left(-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{x} \mathrm{d} \mathbf{y}\right)\\&=\int\left(\int p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{x}- p(\mathbf{y}) \ln p(\mathbf{y}) \right) \mathrm{d} \mathbf{y}\\&=\int\left(\int -p(\mathbf{y}, \mathbf{x}) \ln\left(\frac{p(\mathbf{x})}{p(\mathbf{x},\mathbf{y})}\right)\mathrm{d} \mathbf{x}- p(\mathbf{y}) \ln p(\mathbf{y}) \right) \mathrm{d} \mathbf{y}\\&=\int\left(\int -p(\mathbf{y}, \mathbf{x}) \ln\left(\frac{p(\mathbf{x})p(\mathbf{y})}{p(\mathbf{x},\mathbf{y})p(\mathbf{y})}\right)\mathrm{d} \mathbf{x}- p(\mathbf{y}) \ln p(\mathbf{y}) \right) \mathrm{d} \mathbf{y}\\&=\int\left(\int -p(\mathbf{y}, \mathbf{x}) \left(\ln\frac{p(\mathbf{x})p(\mathbf{y})}{p(\mathbf{x},\mathbf{y})}-\ln p(\mathbf{y})\right)\mathrm{d} \mathbf{x}- p(\mathbf{y}) \ln p(\mathbf{y}) \right) \mathrm{d} \mathbf{y}\\&=\int\left(\int -p(\mathbf{y}, \mathbf{x}) \ln\frac{p(\mathbf{x})p(\mathbf{y})}{p(\mathbf{x},\mathbf{y})}\mathrm{d} \mathbf{x}+\int p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y})\mathrm{d} \mathbf{x}- p(\mathbf{y}) \ln p(\mathbf{y}) \right) \mathrm{d} \mathbf{y}\\&=\int\left(\int -p(\mathbf{y}, \mathbf{x}) \ln\frac{p(\mathbf{x})p(\mathbf{y})}{p(\mathbf{x},\mathbf{y})}\mathrm{d} \mathbf{x}+p(\mathbf{y}) \ln p(\mathbf{y})- p(\mathbf{y}) \ln p(\mathbf{y}) \right) \mathrm{d} \mathbf{y}\\&=\int\left(\int -p(\mathbf{y}, \mathbf{x}) \ln\frac{p(\mathbf{x})p(\mathbf{y})}{p(\mathbf{x},\mathbf{y})}\mathrm{d} \mathbf{x}\right) \mathrm{d} \mathbf{y}\\&=\int\int -p(\mathbf{y}, \mathbf{x}) \ln\frac{p(\mathbf{x})p(\mathbf{y})}{p(\mathbf{x},\mathbf{y})}\mathrm{d} \mathbf{x}\mathrm{d} \mathbf{y} \\ &=\mathrm{I}[\mathbf{x}, \mathbf{y}]\end{aligned}$$
+ 
 \subsectional{2.16}
 Consider two random variables $x_{1}$ and $x_{2}$ having Gaussian distributions with means $\mu_{1}, \mu_{2}$ and precisions $\tau_{1}, \tau_{2}$ respectively. Derive an expression for the differential entropy of the variable $x=x_{1}+x_{2}$. To do this, first find the distribution of $x$ by using the relation
 $$
