@@ -561,13 +561,24 @@
 	input vector $\mathbf{x}$ is assigned to class $\mathcal{C}_{1}$ if $y(\mathbf{x}) \geqslant 0$ and to class $\mathcal{C}_{2}$ otherwise.\\ \\
 	In Euclidean space, two vectors are orthogonal iff their dot product is zero.\\ \\
 	Consider two points $\mathbf{x}_{\mathrm{A}}$ and $\mathbf{x}_{\mathrm{B}}$ both of which lie on the decision surface, then $y\left(\mathbf{x}_{\mathrm{A}}\right)=y\left(\mathbf{x}_{\mathrm{B}}\right)=0$, $\mathbf{w}^{\mathrm{T}}\left(\mathbf{x}_{\mathrm{A}}-\mathbf{x}_{\mathrm{B}}\right)=0$ and hence the vector $\mathbf{w}$ is orthogonal to the decision surface. \\ \\ 
-	the signed orthogonal distance of a general point $\mathbf{x}$ from the decision surface is given by $y(\mathbf{x}) /\|\mathbf{w}\|$.
+	the signed orthogonal distance of a general point $\mathbf{x}$ from the decision surface is given by $y(\mathbf{x}) /\|\mathbf{w}\|$.\\ \\ 
+	proof of the above result
+	\\
+	$\frac{\mathbf{w}}{\|\mathbf{w}\|}$ is the unit vector of $\mathbf{w}$ \\ $\mathbf{x}_{\perp}$ is $\mathbf{x}$'s orthogonal projection onto the decision surface
+	$$\mathbf{x}=\mathbf{x}_{\perp}+r \frac{\mathbf{w}}{\|\mathbf{w}\|}$$
 	\\
 	a single $K$-class discriminant comprising $K$ linear functions of the form
 	
 	$$
 	y_{k}(\mathbf{x})=\mathbf{w}_{k}^{\mathrm{T}} \mathbf{x}+w_{k 0}
 	$$
+	Multiplying both sides of this result by $\mathbf{w}^{\mathrm{T}}$ and adding $w_{0}$, and making use of $y(\mathbf{x})=$ $\mathbf{w}^{\mathrm{T}} \mathbf{x}+w_{0}$ and $y\left(\mathbf{x}_{\perp}\right)=\mathbf{w}^{\mathrm{T}} \mathbf{x}_{\perp}+w_{0}=0$, $\mathbf{w}^{\mathrm{T}}\mathbf{w}=\|\mathbf{w}\|^2$ we have
+	$$
+	r=\frac{y(\mathbf{x})}{\|\mathbf{w}\|}
+	$$
+	compact representation
+	$y(\mathbf{x})=\widetilde{\mathbf{w}}^{\mathrm{T}} \widetilde{\mathbf{x}}$ where $\widetilde{\mathbf{w}}=\left(w_{0}, \mathbf{w}\right)$ and $\widetilde{\mathbf{x}}=\left(x_{0}, \mathbf{x}\right)$.
+	\\
 	assigning a point $\mathbf{x}$ to class $\mathcal{C}_{k}$ if $y_{k}(\mathbf{x})>y_{j}(\mathbf{x})$ for all $j \neq k$.
 	
 	\pagebreak
