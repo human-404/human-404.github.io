@@ -562,6 +562,13 @@
 	In Euclidean space, two vectors are orthogonal iff their dot product is zero.\\ \\
 	Consider two points $\mathbf{x}_{\mathrm{A}}$ and $\mathbf{x}_{\mathrm{B}}$ both of which lie on the decision surface, then $y\left(\mathbf{x}_{\mathrm{A}}\right)=y\left(\mathbf{x}_{\mathrm{B}}\right)=0$, $\mathbf{w}^{\mathrm{T}}\left(\mathbf{x}_{\mathrm{A}}-\mathbf{x}_{\mathrm{B}}\right)=0$ and hence the vector $\mathbf{w}$ is orthogonal to the decision surface. \\ \\ 
 	the signed orthogonal distance of a general point $\mathbf{x}$ from the decision surface is given by $y(\mathbf{x}) /\|\mathbf{w}\|$.
+	\\
+	a single $K$-class discriminant comprising $K$ linear functions of the form
+	
+	$$
+	y_{k}(\mathbf{x})=\mathbf{w}_{k}^{\mathrm{T}} \mathbf{x}+w_{k 0}
+	$$
+	assigning a point $\mathbf{x}$ to class $\mathcal{C}_{k}$ if $y_{k}(\mathbf{x})>y_{j}(\mathbf{x})$ for all $j \neq k$.
 	
 	\pagebreak
 	\section{NEURAL NETWORKS}
