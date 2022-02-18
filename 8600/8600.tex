@@ -583,7 +583,19 @@
 	
 	\pagebreak
 	\section{NEURAL NETWORKS}
-	
+	The linear models for regression and classification discussed in Chapters 3 and 4, respectively, are based on linear combinations of fixed nonlinear basis functions $\phi_{j}(\mathbf{x})$ and take the form
+	$$
+	y(\mathbf{x}, \mathbf{w})=f\left(\sum_{j=1}^{M} w_{j} \phi_{j}(\mathbf{x})\right)
+	$$
+	 This leads to the basic neural network model, which can be described a series of functional transformations. First we construct $M$ linear combinations of the input variables $x_{1}, \ldots, x_{D}$ in the form
+	 $$
+	 a_{j}=\sum_{i=1}^{D} w_{j i}^{(1)} x_{i}+w_{j 0}^{(1)}
+	 $$
+	 the superscript (1) indicates that the corresponding parameters are in the first ``layer" of the network. We shall refer to the parameters $w_{j i}^{(1)}$ as weights and the parameters $w_{j 0}^{(1)}$ as biases, following the nomenclature of Chapter 3.\\\\
+	 The quantities $a_{j}$ are known as activations. Each of them is then transformed using a differentiable, nonlinear activation function $h(\cdot)$ to give
+	 $$
+	 z_{j}=h\left(a_{j}\right) .
+	 $$
 	 
 	\pagebreak
 	\section{KERNEL METHODS}

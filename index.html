@@ -10,10 +10,6 @@
 <body><button><span>Welcome</span></button>
     <br>
     <div>
-        <a href="other.html">dashboard</a>
-    </div>
-    <br>
-    <div>
         <a href="https://wattlecourses.anu.edu.au/my/" target="_blank">Wattle</a>
     </div>
     <br>
@@ -44,5 +40,168 @@
     <div>
         <a href="scribble/scribble.pdf" target="_blank">scribble</a>
     </div>
+    <br>
+    <a>Shanghai - </a><a id="timeNow"></a>
+    <br>
+    <a>Canberra - </a><a id="timeNowAUS"></a>
+    <br>
+    <a>difference in time zone:</a>
+    <a id="diffTimeZone">diffTimeZone</a> <a>hours</a>
+    <br>
+    <button id="gooey-button">hello</button>
+
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36682" target="_blank">COMP4670/COMP8600- Statistical Machine Learning - Sem 1 2022</a>
+    <br>
+    <a href="https://teams.microsoft.com/l/channel/19%3a4ryjpK6hSlyJTMdBt6R4PaMp-jMfxNc1Ksnih5QTnP41%40thread.tacv2/General?groupId=a4ee312b-f0eb-49e0-994b-534f9e11f537&tenantId=e37d725c-ab5c-4624-9ae5-f0533e486437" target="_blank">Monday Lecture</a> 
+    (<a id="COMP8600-Monday-1400"></a> - <a id="COMP8600-Monday-1600"></a>)
+    <br>
+    <a href="https://teams.microsoft.com/l/channel/19%3a4ryjpK6hSlyJTMdBt6R4PaMp-jMfxNc1Ksnih5QTnP41%40thread.tacv2/General?groupId=a4ee312b-f0eb-49e0-994b-534f9e11f537&tenantId=e37d725c-ab5c-4624-9ae5-f0533e486437" target="_blank">Wednesday Lecture</a> 
+    (<a id="COMP8600-Wednesday-1500"></a> - <a id="COMP8600-Wednesday-1700"></a>)
+    <br>
+    <a href="http://cm.cecs.anu.edu.au/sml2022/" target="_blank">Course Content</a> 
+    
+    
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36685" target="_blank">COMP8260/ENGN8260- Professional Practice 2 - Sem 1 2022</a>
+    <br>
+    <a>Tuesday Seminar</a> 
+    (<a id="COMP8260-Tuesday-1600"></a> - <a id="COMP8260-Tuesday-1730"></a>)
+    <br>
+    <a>Friday Drop-in Session</a> 
+    (<a id="COMP8260-Friday-1100"></a> - <a id="COMP8260-Friday-1200"></a>)
+    <br>
+    <a>Thursday Workshop</a>
+    (<a id="COMP8260-Thursday-1700"></a> - <a id="COMP8260-Thursday-1900"></a>)
+
+
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36663" target="_blank">COMP2100/COMP6442 - Software Design Methodologies - Sem 1 2022</a>
+    <br>
+    <a href="https://anu.zoom.us/j/83833517962?pwd=aWZ1M3NMTW5FSmYxclFQdlhrZFpGdz09" target="_blank">Monday Lecture</a> 
+    (<a id="COMP6442-Monday-1600"></a> - <a id="COMP6442-Monday-1800"></a>) <a href="https://anu.zoom.us/j/83833517962?pwd=aWZ1M3NMTW5FSmYxclFQdlhrZFpGdz09" target="_blank" onclick="copyText()">password: study&pass</a>
+    
+
+    <br><br>
+    <a href="https://wattlecourses.anu.edu.au/course/view.php?id=36668" target="_blank">COMP2620/COMP6262/PHIL2080 - Logic - Sem 1 2022</a>
+    <br>
+    <a href="https://anu.zoom.us/j/87101103678?pwd=UEZaR1FsTzZnclhDRnY2aEFEODJIQT09" target="_blank">Monday Lecture</a> 
+    (<a id="COMP6262-Monday-1000"></a> - <a id="COMP6262-Monday-1100"></a>)
+    <br>
+    <a href="https://anu.zoom.us/j/84448651488?pwd=L0l4b0JXREVEMlFFa1pZdS9uUVpyZz09" target="_blank">Tuesday Lecture</a> 
+    (<a id="COMP6262-Tuesday-1200"></a> - <a id="COMP6262-Tuesday-1300"></a>)
+    <br>
+    <a>Wednesday Tutorial</a> 
+    (<a id="COMP6262-Wednesday-1600"></a> - <a id="COMP6262-Wednesday-1800"></a>)
+
+    <script>
+    window.addEventListener("load", myInit, true); function myInit() {
+        startTime();
+        findCourse();
+    }
+
+    function copyText() {
+        navigator.clipboard.writeText("study&pass");
+    }
+
+    function getOffsetBetweenTimezonesForDate(date, timezone1, timezone2) {
+        const timezone1Date = convertDateToAnotherTimeZone(date, timezone1);
+        const timezone2Date = convertDateToAnotherTimeZone(date, timezone2);
+        return timezone1Date.getTime() - timezone2Date.getTime();
+    }
+      
+    function convertDateToAnotherTimeZone(date, timezone) {
+        const dateString = date.toLocaleString('en-US', {
+          timeZone: timezone
+        });
+        return new Date(dateString);
+    }
+
+    function startTime() {
+        const today = new Date();
+        const h = today.getHours();
+        const w = today.toLocaleString("default", { weekday: "long" });
+        document.getElementById("timeNow").innerHTML = today.toLocaleString('en-US', {
+          timeZone: 'Asia/Shanghai'
+        }) + " | " + w + " " + h + ":00";
+        document.getElementById("timeNowAUS").innerHTML = today.toLocaleString('en-US', {
+          timeZone: 'Australia/Canberra'
+        }) + " | " + w + " " + (h - offsetHour) + ":00";
+        setTimeout(startTime, 1000);
+    }
+    
+    let offset = getOffsetBetweenTimezonesForDate(new Date(), 'Asia/Shanghai', 'Australia/Canberra');
+    let offsetHour = offset / 3600000;
+    document.getElementById("diffTimeZone").innerHTML = offsetHour;
+
+    const courses = ["COMP8600", "COMP8260", "COMP6442", "COMP6262"];
+    const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+    const hours = ["10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"];
+    const minutes = ["00", "30"];
+    
+    const courseTimes = [];
+    for (const course of courses) {
+        for (const weekday of weekdays) {
+            for (const hour of hours) {
+                for (const minute of minutes) {
+                    const elementID = course + "-" + weekday + "-" + hour + minute;
+                    var element = document.getElementById(elementID); 
+                    if (typeof(element) != 'undefined' && element != null) {
+                        let timeZoneHour = offsetHour + parseInt(hour);
+                        let timeString = weekday + ' ' + timeZoneHour + ':' + minute;
+                        element.innerHTML = timeString;
+
+                        courseTimes.push(elementID);
+                    }
+                }
+            }
+        }
+    }
+
+    var beginTime = true;
+    var collections = [];
+
+    function findCourse() {
+        const today = new Date();
+        const todayWeek = today.toLocaleString("default", { weekday: "long" }); // local week
+        const todayHour = today.getHours(); // local hour
+        const todayMinute = today.getMinutes(); // local minutes
+
+        for (const collection of collections) {
+            document.getElementById(collection).style.color = "#39ff14";
+        }
+
+        beginTime = true;
+        collections = [];
+
+        document.getElementById("gooey-button").firstChild.data = todayWeek;
+        for (const courseTime of courseTimes) {
+            if (courseTime.includes(todayWeek)) {
+                document.getElementById(courseTime).style.color = 'yellow';
+                if (beginTime) {
+                    if (parseInt(courseTime.slice(-4)) < parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
+                        beginTime = false;
+                        collections.push(courseTime);
+                    }
+                } else {
+                    if (parseInt(courseTime.slice(-4)) > parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
+                        collections.push(courseTime);
+                        for (const collection of collections) {
+                            document.getElementById(collection).style.color = 'pink';
+                        }
+                        let str = document.getElementById(collections[1]).innerHTML;
+                        document.getElementById("gooey-button").firstChild.data = courseTime.substring(0, 8) + " " + document.getElementById(collections[0]).innerHTML + " - " + str.substring(str.length - 5);
+                        break;
+                    } else {
+                        beginTime = true;
+                        collections = []; // clear the list
+                    }
+                }
+            }
+        }
+        setTimeout(findCourse, 60000);
+    }
+
+    </script>
 </body>
 </html>
