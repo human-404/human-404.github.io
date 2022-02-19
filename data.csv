@@ -168,3 +168,15 @@ $$","Dirichlet distribution, gamma function",COMP8600
 "$$
 \Delta^{2}=(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
 $$","Mahalanobis distance, exponent, Gaussian distribution",COMP8600
+"$$
+z_{j}=h\left(a_{j}\right)
+$$","hidden units, differentiable nonlinear activation function, neural networks, activations, output unit activations",COMP8600
+"$$
+a_{j}=\sum_{i=1}^{D} w_{j i}^{(1)} x_{i}+w_{j 0}^{(1)}
+$$","first layer, linear combinations, weights, biases, input variables, series of functional transformations",COMP8600
+"$$
+y_{k}(\mathbf{x}, \mathbf{w})=\sigma\left(\sum_{j=1}^{M} w_{k j}^{(2)} h\left(\sum_{i=1}^{D} w_{j i}^{(1)} x_{i}+w_{j 0}^{(1)}\right)+w_{k 0}^{(2)}\right)
+$$","sigmoidal output unit activation, forward propagation",COMP8600
+"$$
+E(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\|\mathbf{y}\left(\mathbf{x}_{n}, \mathbf{w}\right)-\mathbf{t}_{n}\right\|^{2}
+$$","network training, target vectors, error function, input vectors, sum-of-squares error function",COMP8600
