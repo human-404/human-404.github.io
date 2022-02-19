@@ -1,6 +1,9 @@
 html *
 {
-   font-size: 1.2em;
+  font-family: 'LMRoman10', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2em;
 }
 
 body {
@@ -15,8 +18,6 @@ li {
 }
 
 a {
-  font-family: "CMUSerif-Roman";
-  src: url(fonts/CMUSerif-Roman.woff) format(woff);
   color: #39ff14;
   text-decoration: none;
   position: relative;
@@ -109,8 +110,6 @@ html {
   }
   
   button {
-    font-family: "CMUSerif-Roman";
-    src: url(fonts/CMUSerif-Roman.woff) format(woff);
     display: block;
     position: relative;
     margin: 0.5em 0;
@@ -120,6 +119,7 @@ html {
     border: none;
     border-radius: 0.4em;
     text-transform: uppercase;
+    font-family: 'LMRoman10', sans-serif;
     font-weight: 500;
     letter-spacing: 0.04em;
     mix-blend-mode: color-dodge;
