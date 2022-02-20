@@ -42,7 +42,15 @@ CsvToHtmlTable = {
                         if (cellTemplateFunc) {
                             $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
                         } else {
-                            $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                            if (colIdx == 1) {
+                                var list = (csvData[rowIdx][colIdx]).split(", ");
+                                for (var element of list) {
+                                    var $button = $("<button class = 'chip'>" + element + "</button>");
+                                    $tableBodyRowTd.append($button);
+                                }
+                            } else {
+                                $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
+                            }
                         }
                         $tableBodyRow.append($tableBodyRowTd);
                         $tableBody.append($tableBodyRow);
