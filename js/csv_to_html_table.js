@@ -1,5 +1,21 @@
 var CsvToHtmlTable = CsvToHtmlTable || {};
 
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
+
+function prepend(value, array) {
+    var newArray = array.slice();
+    newArray.unshift(value);
+    return newArray;
+}
+
 CsvToHtmlTable = {
     init: function (options) {
         options = options || {};
@@ -24,7 +40,8 @@ CsvToHtmlTable = {
             function (data) {
                 var csvData = $.csv.toArrays(data, csv_options);
                 var $tableHead = $("<thead></thead>");
-                var csvHeaderRow = csvData[0];
+                var csvHeaderRow = prepend('N', csvData[0]);
+                console.log(csvHeaderRow);
                 var $tableHeadRow = $("<tr></tr>");
                 for (var headerIdx = 0; headerIdx < csvHeaderRow.length; headerIdx++) {
                     $tableHeadRow.append($("<th></th>").text(csvHeaderRow[headerIdx]));
@@ -33,10 +50,13 @@ CsvToHtmlTable = {
 
                 $table.append($tableHead);
                 var $tableBody = $("<tbody></tbody>");
+                // random order
+                var order = Array.from({length: csvData.length - 1}, (_, i) => i + 1);
+                var shuffleOrder = shuffle(order);
 
                 for (var rowIdx = 1; rowIdx < csvData.length; rowIdx++) {
                     var $tableBodyRow = $("<tr></tr>");
-                    for (var colIdx = 0; colIdx < csvData[rowIdx].length; colIdx++) {
+                    for (var colIdx = -1; colIdx < csvData[rowIdx].length; colIdx++) {
                         var $tableBodyRowTd = $("<td></td>");
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
@@ -48,6 +68,8 @@ CsvToHtmlTable = {
                                     var $button = $("<button class = 'chip'>" + element + "</button>");
                                     $tableBodyRowTd.append($button);
                                 }
+                            } else if (colIdx == -1) {
+                                $tableBodyRowTd.text(shuffleOrder[rowIdx - 1]);
                             } else {
                                 $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
                             }
