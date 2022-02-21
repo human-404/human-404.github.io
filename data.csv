@@ -28,7 +28,7 @@ $$","Gaussian integral, Euler–Poisson integral"
 p(x) & \geqslant 0 \\
 \int_{-\infty}^{\infty} p(x) \mathrm{d} x &=1
 \end{aligned}
-$$","Kolmogorov axioms, Probability axioms"
+$$","Kolmogorov axioms, probability axioms"
 "$$
 \begin{aligned}
 p_{y}(y) &=p_{x}(x)\left|\frac{\mathrm{d} x}{\mathrm{~d} y}\right| \\
