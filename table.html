@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HTML Table</title>
+    <title>Table</title>
     <meta content="Display any CSV file as a searchable, filterable, pretty HTML table">
 
+    <!-- LaTeX -->
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
@@ -21,6 +22,10 @@
 </head>
 
 <body>
+    <br>&#160&#160&#160&#160<a href="index.html">BACK</a>
+    <br>&#160&#160&#160&#160<a href="editor.html">EDIT &#128394</a>
+    <br>
+    <br>
     <div class="container-fluid">
         <main class="row">
             <div class="col">
@@ -40,6 +45,9 @@
             background-color: #90EE90;
             margin: 1px;
         }
+        .editable {
+            text-align: left;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
@@ -53,6 +61,7 @@
             update_math();
         }
 
+        // format link
         function format_link(link) {
             if (link)
                 return "<a href='" + link + "' target='_blank'>" + link + "</a>";
