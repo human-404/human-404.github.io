@@ -24,11 +24,12 @@ function tableAddRow(element) {
     var table = document.getElementById("table-container-table");
     var newRow = table.insertRow(parseInt(rowIdx) + 1);
     newRow.setAttribute("contenteditable", "true");
-    for (let i = 0; i < 3; i ++) {
-        newRow.insertCell(i);
-    }
+    newRow.insertCell(0);
+    var $TeXdiv = newRow.insertCell(1);
+    $TeXdiv.innerHTML = "<div class='tex2jax_ignore'>$$ $$</div>";
+    newRow.insertCell(2);
     var $controlPanel = newRow.insertCell(3);
-    $controlPanel.innerHTML = "<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button><button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button>";
+    $controlPanel.innerHTML = "<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button><button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button><button class='control-panel-button' id='renderButton' onclick='renderControl(this)' contenteditable='false'><img src='assets/gallery.png'/></button>";
     updateSequence();
 }
 
@@ -44,6 +45,22 @@ function prepend(value, array) {
     var newArray = array.slice();
     newArray.unshift(value);
     return newArray;
+}
+
+function renderControl(element) {
+    var TexCol = ((element.parentElement).previousSibling).previousSibling;
+    if (TexCol.hasChildNodes()) {
+        var TeXColElement = TexCol.children[0];
+        if (TeXColElement.className == "isRendered") {
+            // remove the rendered image
+    
+        } else {
+            TeXColElement.setAttribute("class", "isRendered");
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    } else {
+        alert("render control error");
+    }
 }
 
 CsvToHtmlTable = {
@@ -108,14 +125,15 @@ CsvToHtmlTable = {
                                     $tableBodyRowTd.append($button);
                                 }
                             } else if (colIdx == 0 && write) {
-                                var LaTeXText = csvData[rowIdx][colIdx];
-                                var substring = LaTeXText.substring(2, LaTeXText.length - 2);
-                                $tableBodyRowTd.text(substring);
+                                var $TeXdiv = $("<div class='tex2jax_ignore'>" + csvData[rowIdx][colIdx] + "</div>");
+                                $tableBodyRowTd.append($TeXdiv);
                             } else if (colIdx == 2 && write) {
                                 var $delButton = $("<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button>");
                                 var $addButton = $("<button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button>");
+                                var $renderButton = $("<button class='control-panel-button' id='renderButton' onclick='renderControl(this)' contenteditable='false'><img src='assets/gallery.png'/></button>");
                                 $tableBodyRowTd.append($delButton);
                                 $tableBodyRowTd.append($addButton);
+                                $tableBodyRowTd.append($renderButton);
                             } else {
                                 $tableBodyRowTd.text(csvData[rowIdx][colIdx]);
                             }
@@ -127,7 +145,7 @@ CsvToHtmlTable = {
                 $table.append($tableBody);
 
                 if (write) {
-                    $table.append("<colgroup><col span='1' style='width: 5%;'><col span='1' style='width: 50%;'><col span='1' style='width: 37.5%;'></colgroup><col span='1' style='width: 7.5%;'></colgroup>");
+                    $table.append("<colgroup><col span='1' style='width: 5%;'><col span='1' style='width: 50%;'><col span='1' style='width: 35%;'></colgroup><col span='1' style='width: 10%;'></colgroup>");
                 }
 
                 $table.DataTable(datatables_options);
