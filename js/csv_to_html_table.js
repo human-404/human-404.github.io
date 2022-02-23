@@ -10,6 +10,12 @@ function shuffle(array) {
     return array;
 }
 
+function removeChildren(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 function tableDeleteRow(element) {
     var rowNumberElement = (((element.parentElement).previousSibling).previousSibling).previousSibling;
     var rowIdx = rowNumberElement.innerHTML;
@@ -52,8 +58,13 @@ function renderControl(element) {
     if (TexCol.hasChildNodes()) {
         var TeXColElement = TexCol.children[0];
         if (TeXColElement.className == "isRendered") {
-            // remove the rendered image
-    
+            // LaTeX text
+            var textLaTeX = "$$" + TeXColElement.children[2].text + "$$";
+            console.log(textLaTeX);
+            removeChildren(TeXColElement);
+            console.log(textLaTeX);
+            TeXColElement.innerHTML = textLaTeX;
+            TeXColElement.setAttribute("class", "tex2jax_ignore");
         } else {
             TeXColElement.setAttribute("class", "isRendered");
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
