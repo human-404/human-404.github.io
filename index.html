@@ -199,8 +199,11 @@
         document.getElementById("gooey-button").firstChild.data = todayWeek;
         for (const courseTime of courseTimes) {
             if (courseTime.includes(todayWeek)) {
+                // highlight today's agenda by yellow
                 document.getElementById(courseTime).style.color = 'yellow';
                 if (beginTime) {
+                    // the last four characters of the courseTime variable
+                    // format 0800 == hour minute
                     if (parseInt(courseTime.slice(-4)) < parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
                         beginTime = false;
                         collections.push(courseTime);
@@ -208,6 +211,7 @@
                 } else {
                     if (parseInt(courseTime.slice(-4)) > parseInt(todayHour + "" + todayMinute) - offsetHour * 100) {
                         collections.push(courseTime);
+                        // highlight the activity right now by pink
                         for (const collection of collections) {
                             document.getElementById(collection).style.color = 'pink';
                         }
