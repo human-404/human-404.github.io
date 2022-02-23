@@ -19,7 +19,14 @@
         <link rel="icon" class="js-site-favicon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
     </head>
 <body>
-    <br>&#160&#160&#160&#160<a href="table.html">BACK</a>
+    <br>
+    <form action="script.php" method="post">
+        <input id="formInput" type="hidden" name="table"> <!-- hidden from user -->
+        <input id="updateCSV" type="submit" value="update"> &#160&#160&#160
+    </form>
+    &#160&#160&#160&#160<a href="table.html">BACK</a>
+    <button id="updateCSVTable" onclick="updateTable()">save table</button>
+    <br><br>
     <div class="container-fluid">
         <main class="row">
             <div class="col">
@@ -28,9 +35,28 @@
         </main>
     </div>
     <style>
-        label, th, tr, ul, div, a, input {
+        label, th, tr, ul, div, a, input, button {
             font-family: 'LMRoman10', sans-serif;
             font-style: normal;
+        }
+        form {
+            position: relative;
+            float: right;
+        }
+        #updateCSVTable {
+            position: relative;
+            float: right;
+            padding: 0 10px;
+            border-radius: 25px;
+            background-image: linear-gradient(to right, aquamarine, pink);
+            margin: 1px;
+        }
+        #updateCSV {
+            display: inline-block;
+            padding: 0 10px;
+            border-radius: 25px;
+            background-image: linear-gradient(to right, red,violet);
+            margin: 1px;
         }
         #delButton { 
             display: inline-block;
@@ -78,6 +104,31 @@
     <script src="js/csv_to_html_table.js"></script>
 
     <script>
+        function updateTable() {
+            var idTable = document.getElementById("table-container-table");
+
+            var table = [];
+            var header = ["LaTeX", "Description"];
+            table.push(header);
+
+            for (var i = 1; i < idTable.rows.length; i ++) {
+                var innerList = [];
+                var rowTeX = idTable.rows[i].cells[1].children[0];
+                var rowTAG = idTable.rows[i].cells[2];
+
+                if (rowTeX.className == "isRendered") {
+                    var textLaTeX = rowTeX.children[2];
+                    innerList.push(textLaTeX.innerHTML); // push TeX
+                } else {
+                    var textLaTeX = rowTeX;
+                    innerList.push(textLaTeX.innerHTML); // push TeX
+                }
+                innerList.push(rowTAG.innerHTML); // push text
+                table.push(innerList);
+            }
+            document.getElementById("formInput").value = JSON.stringify(table); // pass Javascript array to php
+        }
+
         CsvToHtmlTable.init({
             csv_path: "data.csv",
             element: "table-container",

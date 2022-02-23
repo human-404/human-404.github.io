@@ -60,9 +60,7 @@ function renderControl(element) {
         if (TeXColElement.className == "isRendered") {
             // LaTeX text
             var textLaTeX = "$$" + TeXColElement.children[2].text + "$$";
-            console.log(textLaTeX);
             removeChildren(TeXColElement);
-            console.log(textLaTeX);
             TeXColElement.innerHTML = textLaTeX;
             TeXColElement.setAttribute("class", "tex2jax_ignore");
         } else {
