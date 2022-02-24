@@ -107,7 +107,7 @@ function renderControl(element) {
         } else {
 
             TeXColElement.setAttribute("class", "isRendered");
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, TeXColElement]);
 
             function isRendered() {
                 return TeXColElement.children[2];
