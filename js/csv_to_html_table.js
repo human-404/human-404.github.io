@@ -82,7 +82,9 @@ function renderControl(element) {
         } else {
             TeXColElement.setAttribute("class", "isRendered");
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-            if (TeXColElement.children.length < 2) {
+            
+            // if TeX fail  
+            if (!(TeXColElement.children[2]) || (TeXColElement.children[2]).nodeName != "SCRIPT") {
                 alert("fail to render TeX");
                 TeXColElement.setAttribute("class", "tex2jax_ignore");
                 return;
