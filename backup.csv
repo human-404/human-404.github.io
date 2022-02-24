@@ -4,22 +4,22 @@ y(x, \mathbf{w})=w_{0}+w_{1} x+w_{2} x^{2}+\ldots+w_{M} x^{M}=\sum_{j=0}^{M} w_{
 $$","polynomial curve fitting, error minimization"
 "$$
 E(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}
-$$",sum-of-squares error function
+$$","sum-of-squares error function"
 "$$
 \widetilde{E}(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\lambda}{2}\|\mathbf{w}\|^{2}
 $$","quadratic regularizer, ridge regression, weight decay (neural networks), shrinkage (statistics literature)"
 "$$
 E_{\mathrm{RMS}}=\sqrt{2 E\left(\mathbf{w}^{\star}\right) / N}
-$$",root-mean-square (RMS) error
+$$","root-mean-square (RMS) error"
 "$$
 p(X)=\sum_{Y} p(X, Y)
-$$",sum rule of probability
+$$","sum rule of probability"
 "$$
 p(X, Y)=p(Y \mid X) p(X)
-$$",product rule of probability
+$$","product rule of probability"
 "$$
 p(Y \mid X)=\frac{p(X \mid Y) p(Y)}{p(X)}
-$$",Bayes' theorem 
+$$","Bayes' theorem "
 "$$
 \int_{-\infty}^{\infty} e^{-a(x+b)^{2}} d x=\sqrt{\frac{\pi}{a}}
 $$","Gaussian integral, Euler-Poisson integral"
@@ -28,7 +28,7 @@ $$","Gaussian integral, Euler-Poisson integral"
 p(x) & \geqslant 0 \\
 \int_{-\infty}^{\infty} p(x) \mathrm{d} x &=1
 \end{aligned}
-$$","Kolmogorov axioms, Probability axioms"
+$$","Kolmogorov axioms, probability axioms"
 "$$
 \begin{aligned}
 p_{y}(y) &=p_{x}(x)\left|\frac{\mathrm{d} x}{\mathrm{~d} y}\right| \\
@@ -43,7 +43,7 @@ $$","Euclidean distance, Euclidean norm"
 p(x) &=\int p(x, y) \mathrm{d} y \\
 p(x, y) &=p(y \mid x) p(x) .
 \end{aligned}
-$$",sum rule and product rule for continuous variables
+$$","sum rule and product rule for continuous variables"
 "$$
 \begin{aligned}
 \operatorname{cov}[x, y] &=\mathbb{E}_{x, y}[\{x-\mathbb{E}[x]\}\{y-\mathbb{E}[y]\}] \\
@@ -110,7 +110,7 @@ $$","analytical solution, predictive distribution, polynomial curve fitting "
 $$","Akaike information criterion, AIC, best-fit log likelihood"
 "$$
 y(\mathbf{x}, \mathbf{w})=w_{0}+\sum_{i=1}^{D} w_{i} x_{i}+\sum_{i=1}^{D} \sum_{j=1}^{D} w_{i j} x_{i} x_{j}+\sum_{i=1}^{D} \sum_{j=1}^{D} \sum_{k=1}^{D} w_{i j k} x_{i} x_{j} x_{k}
-$$",the curse of dimensionality
+$$","the curse of dimensionality"
 "$$
 p\left(\mathcal{C}_{k} \mid \mathbf{x}\right)=\frac{p\left(\mathbf{x} \mid \mathcal{C}_{k}\right) p\left(\mathcal{C}_{k}\right)}{p(\mathbf{x})}
 $$","Bayes' theorem, classification, decision theory"
@@ -119,19 +119,19 @@ $$","Bayes' theorem, classification, decision theory"
 $$","expected loss, loss function, regression"
 "$$
 \mathbb{E}\left[L_{q}\right]=\iint|y(\mathbf{x})-t|^{q} p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t
-$$",Minkowski loss
+$$","Minkowski loss"
 "$$
 \mathrm{H}=-\lim _{N \rightarrow \infty} \sum_{i}\left(\frac{n_{i}}{N}\right) \ln \left(\frac{n_{i}}{N}\right)=-\sum_{i} p_{i} \ln p_{i}
 $$","microstate, macrostate, weight, entropy"
 "$$
 \ln N ! \simeq N \ln N-N
-$$",Stirling's approximation
+$$","Stirling's approximation"
 "$$
 \mathrm{H}[\mathbf{x}]=-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}
-$$",differential entropy
+$$","differential entropy"
 "$$
 \mathrm{H}[\mathbf{y} \mid \mathbf{x}]=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x}
-$$",conditional entropy
+$$","conditional entropy"
 "$$
 \begin{aligned}
 \mathrm{KL}(p \| q) &=-\int p(\mathbf{x}) \ln q(\mathbf{x}) \mathrm{d} \mathbf{x}-\left(-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \\
@@ -158,7 +158,7 @@ $$","mutual information, conditional entropy"
 N \\
 m
 \end{array}\right) \mu^{m}(1-\mu)^{N-m}
-$$",binomial distribution
+$$","binomial distribution"
 "$$
 \operatorname{Beta}(\mu \mid a, b)=\frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)} \mu^{a-1}(1-\mu)^{b-1}
 $$","beta distribution, gamma function, conjugacy, prior distribution"

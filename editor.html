@@ -26,6 +26,7 @@
     </form>
     &#160&#160&#160&#160<a href="table.html">BACK</a>
     <button id="updateCSVTable" onclick="updateTable()">save table</button>
+    <input id="reloadPage" type="button" value="reload page" onClick="document.location.reload(true)">
     <br><br>
     <div class="container-fluid">
         <main class="row">
@@ -42,6 +43,21 @@
         form {
             position: relative;
             float: right;
+        }
+        .chip {
+            display: inline-block;
+            padding: 0 10px;
+            border-radius: 25px;
+            background-color: #90EE90;
+            margin: 1px;
+        }
+        #reloadPage {
+            position: relative;
+            float: right;
+            padding: 0 10px;
+            border-radius: 25px;
+            background-image: linear-gradient(to right, greenyellow, aqua);
+            margin: 1px;
         }
         #updateCSVTable {
             position: relative;
@@ -119,13 +135,26 @@
                 if (rowTeX.className == "isRendered") {
                     var textLaTeX = rowTeX.children[2];
                     innerList.push(textLaTeX.innerHTML); // push TeX
+
+                    // chip children
+                    var list = [];
+                    list.push((rowTAG.children[0]).innerHTML); // push first child
+
+                    for (var j = 1; j < (rowTAG.children).length; j ++) {
+                        var chipText = " " + rowTAG.children[j].innerHTML;
+                        list.push(chipText);
+                    }
+                    innerList.push(list.toString());
+
                 } else {
                     var textLaTeX = rowTeX;
                     innerList.push(textLaTeX.innerHTML); // push TeX
+                    innerList.push(rowTAG.innerHTML); // push text
                 }
-                innerList.push(rowTAG.innerHTML); // push text
+
                 table.push(innerList);
             }
+            console.log(table);
             document.getElementById("formInput").value = JSON.stringify(table); // pass Javascript array to php
         }
 

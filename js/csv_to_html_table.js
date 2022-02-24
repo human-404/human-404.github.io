@@ -16,7 +16,15 @@ function removeChildren(parent) {
     }
 }
 
+function wikipedia(element) {
+    window.open("https://en.wikipedia.org/w/index.php?search=" + element.innerHTML + "&title=Special%3ASearch&go=Go&ns0=1");
+}
+
 function tableDeleteRow(element) {
+    if (document.getElementsByClassName("form-control form-control-sm")[0].value) {
+        alert("editing disabled");
+        return;
+    }
     var rowNumberElement = (((element.parentElement).previousSibling).previousSibling).previousSibling;
     var rowIdx = rowNumberElement.innerHTML;
     var table = document.getElementById("table-container-table");
@@ -25,6 +33,10 @@ function tableDeleteRow(element) {
 }
 
 function tableAddRow(element) {
+    if (document.getElementsByClassName("form-control form-control-sm")[0].value) {
+        alert("editing disabled");
+        return;
+    }
     var rowNumberElement = (((element.parentElement).previousSibling).previousSibling).previousSibling;
     var rowIdx = rowNumberElement.innerHTML;
     var table = document.getElementById("table-container-table");
@@ -32,11 +44,59 @@ function tableAddRow(element) {
     newRow.setAttribute("contenteditable", "true");
     newRow.insertCell(0);
     var $TeXdiv = newRow.insertCell(1);
-    $TeXdiv.innerHTML = "<div class='tex2jax_ignore'>$$ $$</div>";
+    $TeXdiv.innerHTML = "<div class='tex2jax_ignore'></div>";
     newRow.insertCell(2);
     var $controlPanel = newRow.insertCell(3);
     $controlPanel.innerHTML = "<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button><button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button><button class='control-panel-button' id='renderButton' onclick='renderControl(this)' contenteditable='false'><img src='assets/gallery.png'/></button>";
     updateSequence();
+}
+
+function renderControl(element) {
+    if (document.getElementsByClassName("form-control form-control-sm")[0].value) {
+        alert("editing disabled");
+        return;
+    }
+    var TeXCol = ((element.parentElement).previousSibling).previousSibling;
+    var tagCol = ((element.parentElement).previousSibling);
+
+    if (TeXCol.hasChildNodes()) {
+        var TeXColElement = TeXCol.children[0];
+        if (TeXColElement.className == "isRendered") {
+            // LaTeX text
+            var textLaTeX = "$$" + TeXColElement.children[2].text + "$$";
+            removeChildren(TeXColElement);
+            TeXColElement.innerHTML = textLaTeX;
+            TeXColElement.setAttribute("class", "tex2jax_ignore");
+
+            // chip children
+            var list = [];
+            for (var child of tagCol.children) {
+                var chipText = " " + child.innerHTML;
+                list.push(chipText);
+            }
+            tagCol.innerHTML = list.toString();
+
+            TeXCol.setAttribute("contenteditable", "true");
+            tagCol.setAttribute("contenteditable", "true");
+
+        } else {
+            TeXColElement.setAttribute("class", "isRendered");
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+            // chip
+            var list = (tagCol.innerHTML).split(", ");
+            var textInit = "";
+            for (var item of list) {
+                textInit = textInit.concat("<button class='chip' onclick='wikipedia(this)'>" + item + "</button>");
+            }
+            tagCol.innerHTML = textInit;
+
+            TeXCol.setAttribute("contenteditable", "false");
+            tagCol.setAttribute("contenteditable", "false");
+        }
+    } else {
+        alert("render control error");
+    }
 }
 
 function updateSequence() {
@@ -51,25 +111,6 @@ function prepend(value, array) {
     var newArray = array.slice();
     newArray.unshift(value);
     return newArray;
-}
-
-function renderControl(element) {
-    var TexCol = ((element.parentElement).previousSibling).previousSibling;
-    if (TexCol.hasChildNodes()) {
-        var TeXColElement = TexCol.children[0];
-        if (TeXColElement.className == "isRendered") {
-            // LaTeX text
-            var textLaTeX = "$$" + TeXColElement.children[2].text + "$$";
-            removeChildren(TeXColElement);
-            TeXColElement.innerHTML = textLaTeX;
-            TeXColElement.setAttribute("class", "tex2jax_ignore");
-        } else {
-            TeXColElement.setAttribute("class", "isRendered");
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        }
-    } else {
-        alert("render control error");
-    }
 }
 
 CsvToHtmlTable = {
@@ -122,15 +163,11 @@ CsvToHtmlTable = {
                             $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
                         } else {
                             if (colIdx == -1) {
-                                if (write) {
-                                    $tableBodyRowTd.text(rowIdx); // editing enabled
-                                } else {
-                                    $tableBodyRowTd.text(shuffleOrder[rowIdx - 1]); // randomize the order 
-                                }
+                                $tableBodyRowTd.text(shuffleOrder[rowIdx - 1]); // randomize the order
                             } else if (colIdx == 1 && !write) {
                                 var list = (csvData[rowIdx][colIdx]).split(", ");
                                 for (var element of list) {
-                                    var $button = $("<button class='chip'>" + element + "</button>");
+                                    var $button = $("<button class='chip' onclick='wikipedia(this)'>" + element + "</button>");
                                     $tableBodyRowTd.append($button);
                                 }
                             } else if (colIdx == 0 && write) {
