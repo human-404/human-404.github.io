@@ -65,11 +65,11 @@ function tableAddRow(element) {
     var rowIdx = rowNumberElement.innerHTML;
     var table = document.getElementById("table-container-table");
     var newRow = table.insertRow(parseInt(rowIdx) + 1);
-    newRow.setAttribute("contenteditable", "true");
     newRow.insertCell(0);
     var $TeXdiv = newRow.insertCell(1);
     $TeXdiv.innerHTML = "<div class='tex2jax_ignore' contenteditable='true'>$$ $$</div>";
-    newRow.insertCell(2);
+    var $tagdiv = newRow.insertCell(2);
+    $tagdiv.setAttribute("contenteditable", "true");
     var $controlPanel = newRow.insertCell(3);
     $controlPanel.innerHTML = "<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button><button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button><button class='control-panel-button' id='renderButton' onclick='renderControl(this)' contenteditable='false'><img src='assets/gallery.png'/></button>";
     updateSequence();
@@ -96,7 +96,7 @@ function renderControl(element) {
             }
             tagCol.innerHTML = list.toString();
 
-            TeXCol.setAttribute("contenteditable", "true");
+            TeXColElement.setAttribute("contenteditable", "true");
             tagCol.setAttribute("contenteditable", "true");
 
         } else {
@@ -124,7 +124,7 @@ function renderControl(element) {
                 }
                 tagCol.innerHTML = textInit;
 
-                TeXCol.setAttribute("contenteditable", "false");
+                TeXColElement.setAttribute("contenteditable", "false");
                 tagCol.setAttribute("contenteditable", "false");
             }
 
