@@ -22,10 +22,10 @@
     <br>
     <form action="script.php" method="post">
         <input id="formInput" type="hidden" name="table"> <!-- hidden from user -->
-        <input id="updateCSV" type="submit" value="update"> &#160&#160&#160
+        <input id="updateCSV" type="submit" value="update csv" onClick="return empty()"> &#160&#160&#160
     </form>
     &#160&#160&#160&#160<a href="table.html">BACK</a>
-    <button id="updateCSVTable" onclick="updateTable()">save table</button>
+    <button id="updateCSVTable" onclick="updateTable()">update table</button>
     <input id="reloadPage" type="button" value="reload page" onClick="document.location.reload(true)">
     <br><br>
     <div class="container-fluid">
@@ -71,7 +71,7 @@
             display: inline-block;
             padding: 0 10px;
             border-radius: 25px;
-            background-image: linear-gradient(to right, red,violet);
+            background-image: linear-gradient(to right, violet,red);
             margin: 1px;
         }
         #delButton { 
@@ -120,6 +120,16 @@
     <script src="js/csv_to_html_table.js"></script>
 
     <script>
+        function empty() {
+            var x;
+            x = document.getElementById("formInput").value;
+            if (x == "") {
+                updateTable();
+                alert("table is updated");
+                return false;
+            };
+        }
+
         function updateTable() {
             var idTable = document.getElementById("table-container-table");
 
@@ -155,7 +165,6 @@
 
                 table.push(innerList);
             }
-            console.log(table);
             document.getElementById("formInput").value = JSON.stringify(table); // pass Javascript array to php
         }
 
