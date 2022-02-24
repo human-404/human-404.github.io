@@ -75,12 +75,7 @@ function tableAddRow(element) {
     updateSequence();
 }
 
-function renderControl(element) {
-    if (document.getElementsByClassName("form-control form-control-sm")[0].value) {
-        alert("editing disabled");
-        return;
-    }
-    
+function renderControl(element) {    
     var TeXCol = ((element.parentElement).previousSibling).previousSibling;
     var tagCol = ((element.parentElement).previousSibling);
 
