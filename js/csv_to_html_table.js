@@ -1,5 +1,29 @@
 var CsvToHtmlTable = CsvToHtmlTable || {};
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// wait for bool in order to execute the function
+function waitFor(bool, functional, fail, counter, maximum) {
+    // the maximum waiting time = maximum * 50 milliseconds
+    if (counter == maximum) {
+        // fail to satisfy requirement
+        fail();
+    } else {
+        // wait for 50 milliseconds
+        sleep(50).then(() => {
+            if (bool()) {
+                // success
+                functional();
+                return;
+            } else {
+                waitFor(bool, functional, fail, counter + 1, maximum);
+            }
+        });
+    }
+}
+
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
     while (currentIndex != 0) {
@@ -56,6 +80,7 @@ function renderControl(element) {
         alert("editing disabled");
         return;
     }
+    
     var TeXCol = ((element.parentElement).previousSibling).previousSibling;
     var tagCol = ((element.parentElement).previousSibling);
 
@@ -80,26 +105,35 @@ function renderControl(element) {
             tagCol.setAttribute("contenteditable", "true");
 
         } else {
+
             TeXColElement.setAttribute("class", "isRendered");
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-            
-            // if TeX fail  
-            if (!(TeXColElement.children[2]) || (TeXColElement.children[2]).nodeName != "SCRIPT") {
-                alert("fail to render TeX");
+
+            function isRendered() {
+                return TeXColElement.children[2];
+            }
+
+            // render incomplete within the time limit
+            function failure() {
                 TeXColElement.setAttribute("class", "tex2jax_ignore");
+                alert("fail to render TeX");
                 return;
             }
+            
+            function complete() {
+                // chip
+                var list = (tagCol.innerHTML).split(", ");
+                var textInit = "";
+                for (var item of list) {
+                    textInit = textInit.concat("<button class='chip' onclick='wikipedia(this)'>" + item + "</button>");
+                }
+                tagCol.innerHTML = textInit;
 
-            // chip
-            var list = (tagCol.innerHTML).split(", ");
-            var textInit = "";
-            for (var item of list) {
-                textInit = textInit.concat("<button class='chip' onclick='wikipedia(this)'>" + item + "</button>");
+                TeXCol.setAttribute("contenteditable", "false");
+                tagCol.setAttribute("contenteditable", "false");
             }
-            tagCol.innerHTML = textInit;
 
-            TeXCol.setAttribute("contenteditable", "false");
-            tagCol.setAttribute("contenteditable", "false");
+            waitFor(isRendered, complete, failure, 0, 10);
         }
     } else {
         alert("render control error");
