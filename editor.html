@@ -134,7 +134,8 @@
 
                 if (rowTeX.className == "isRendered") {
                     var textLaTeX = rowTeX.children[2];
-                    innerList.push(textLaTeX.innerHTML); // push TeX
+                    var textLaTeXFormat = "$$" + textLaTeX.innerHTML + "$$";
+                    innerList.push(textLaTeXFormat); // push TeX
 
                     // chip children
                     var list = [];

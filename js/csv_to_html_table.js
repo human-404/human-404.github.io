@@ -44,7 +44,7 @@ function tableAddRow(element) {
     newRow.setAttribute("contenteditable", "true");
     newRow.insertCell(0);
     var $TeXdiv = newRow.insertCell(1);
-    $TeXdiv.innerHTML = "<div class='tex2jax_ignore'></div>";
+    $TeXdiv.innerHTML = "<div class='tex2jax_ignore' contenteditable='true'>$$ $$</div>";
     newRow.insertCell(2);
     var $controlPanel = newRow.insertCell(3);
     $controlPanel.innerHTML = "<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button><button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button><button class='control-panel-button' id='renderButton' onclick='renderControl(this)' contenteditable='false'><img src='assets/gallery.png'/></button>";
