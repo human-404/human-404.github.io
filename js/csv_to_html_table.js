@@ -82,6 +82,11 @@ function renderControl(element) {
         } else {
             TeXColElement.setAttribute("class", "isRendered");
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            if (TeXColElement.children.length < 2) {
+                alert("fail to render TeX");
+                TeXColElement.setAttribute("class", "tex2jax_ignore");
+                return;
+            }
 
             // chip
             var list = (tagCol.innerHTML).split(", ");
@@ -157,7 +162,12 @@ CsvToHtmlTable = {
                 for (var rowIdx = 1; rowIdx < csvData.length; rowIdx++) {
                     var $tableBodyRow = $("<tr></tr>");
                     for (var colIdx = -1; colIdx < csvHeaderRow.length - 1; colIdx++) {
-                        var $tableBodyRowTd = (write) ? $("<td contenteditable='true'></td>") : $("<td></td>");
+                        var $tableBodyRowTd;
+                        if (colIdx == -1 || colIdx == 2) {
+                            $tableBodyRowTd = (write) ? $("<td contenteditable='false'></td>") : $("<td></td>");
+                        } else {
+                            $tableBodyRowTd = (write) ? $("<td contenteditable='true'></td>") : $("<td></td>");
+                        }
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
                             $tableBodyRowTd.html(cellTemplateFunc(csvData[rowIdx][colIdx]));
