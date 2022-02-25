@@ -64,17 +64,22 @@ function tableAddRow(element) {
     var rowNumberElement = (((element.parentElement).previousSibling).previousSibling).previousSibling;
     var rowIdx = rowNumberElement.innerHTML;
     var table = document.getElementById("table-container-table");
+    
     var newRow = table.insertRow(parseInt(rowIdx) + 1);
     var $number = newRow.insertCell(0);
-    $number.setAttribute("align", "center");
     var $TeXdiv = newRow.insertCell(1);
-    $TeXdiv.innerHTML = "<div class='tex2jax_ignore' contenteditable='true' align='center'>$$ $$</div>";
     var $tagdiv = newRow.insertCell(2);
+    var $controlPanel = newRow.insertCell(3);
+
+    newRow.setAttribute("class", "plainText");
+    $number.setAttribute("align", "center");
     $tagdiv.setAttribute("align", "center");
     $tagdiv.setAttribute("contenteditable", "true");
-    var $controlPanel = newRow.insertCell(3);
     $controlPanel.setAttribute("align", "center");
+
+    $TeXdiv.innerHTML = "<div class='tex2jax_ignore' contenteditable='true' align='center'>$$ $$</div>";
     $controlPanel.innerHTML = "<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button><button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button><button class='control-panel-button' id='renderButton' onclick='renderControl(this)' contenteditable='false'><img src='assets/gallery.png'/></button>";
+    
     updateSequence();
 }
 
