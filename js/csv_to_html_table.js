@@ -65,12 +65,15 @@ function tableAddRow(element) {
     var rowIdx = rowNumberElement.innerHTML;
     var table = document.getElementById("table-container-table");
     var newRow = table.insertRow(parseInt(rowIdx) + 1);
-    newRow.insertCell(0);
+    var $number = newRow.insertCell(0);
+    $number.setAttribute("align", "center");
     var $TeXdiv = newRow.insertCell(1);
-    $TeXdiv.innerHTML = "<div class='tex2jax_ignore' contenteditable='true'>$$ $$</div>";
+    $TeXdiv.innerHTML = "<div class='tex2jax_ignore' contenteditable='true' align='center'>$$ $$</div>";
     var $tagdiv = newRow.insertCell(2);
+    $tagdiv.setAttribute("align", "center");
     $tagdiv.setAttribute("contenteditable", "true");
     var $controlPanel = newRow.insertCell(3);
+    $controlPanel.setAttribute("align", "center");
     $controlPanel.innerHTML = "<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button><button class='control-panel-button' id='addButton' onclick='tableAddRow(this)' contenteditable='false'><img src='assets/plus.png'/></button><button class='control-panel-button' id='renderButton' onclick='renderControl(this)' contenteditable='false'><img src='assets/gallery.png'/></button>";
     updateSequence();
 }
@@ -196,9 +199,9 @@ CsvToHtmlTable = {
                     for (var colIdx = -1; colIdx < csvHeaderRow.length - 1; colIdx++) {
                         var $tableBodyRowTd;
                         if (colIdx == -1 || colIdx == 2) {
-                            $tableBodyRowTd = (write) ? $("<td contenteditable='false'></td>") : $("<td></td>");
+                            $tableBodyRowTd = (write) ? $("<td contenteditable='false' align='center'></td>") : $("<td align='center'></td>");
                         } else {
-                            $tableBodyRowTd = (write) ? $("<td contenteditable='true' class='plainText'></td>") : $("<td></td>");
+                            $tableBodyRowTd = (write) ? $("<td contenteditable='true' class='plainText' align='center'></td>") : $("<td align='center'></td>");
                         }
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
@@ -234,7 +237,9 @@ CsvToHtmlTable = {
                 updatePlainText();
 
                 if (write) {
-                    $table.append("<colgroup><col span='1' style='width: 5%;'><col span='1' style='width: 50%;'><col span='1' style='width: 35%;'></colgroup><col span='1' style='width: 10%;'></colgroup>");
+                    $table.append("<colgroup><col span='1' style='width: 5%;'><col span='1' style='width: 50%;'><col span='1' style='width: 35%;'><col span='1' style='width: 10%;'></colgroup>");
+                } else {
+                    $table.append("<colgroup><col span='1' style='width: 5%;'><col span='1' style='width: 50%;'><col span='1' style='width: 45%;'></colgroup>");
                 }
 
                 $table.DataTable(datatables_options);
