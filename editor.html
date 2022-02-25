@@ -120,6 +120,22 @@
     <script src="js/csv_to_html_table.js"></script>
 
     <script>
+        function pastePlainText(e) {
+            e.stopPropagation();
+            e.preventDefault();
+        
+            // paste data via clipboard API
+            var text = e.clipboardData.getData("text/plain");
+            document.execCommand("insertHTML", false, text);
+        }
+
+        function updatePlainText() {
+            var allTeX = document.getElementsByClassName("plainText");
+            for (var TeX of allTeX) {
+                TeX.addEventListener("paste", pastePlainText);
+            }
+        }
+
         function empty() {
             var x;
             x = document.getElementById("formInput").value;

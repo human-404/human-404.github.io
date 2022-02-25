@@ -141,6 +141,7 @@ function updateSequence() {
         var td = idTable.rows[i].cells[0];
         td.innerHTML = i;
     }
+    updatePlainText();
 }
 
 function prepend(value, array) {
@@ -197,7 +198,7 @@ CsvToHtmlTable = {
                         if (colIdx == -1 || colIdx == 2) {
                             $tableBodyRowTd = (write) ? $("<td contenteditable='false'></td>") : $("<td></td>");
                         } else {
-                            $tableBodyRowTd = (write) ? $("<td contenteditable='true'></td>") : $("<td></td>");
+                            $tableBodyRowTd = (write) ? $("<td contenteditable='true' class='plainText'></td>") : $("<td></td>");
                         }
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
@@ -230,6 +231,7 @@ CsvToHtmlTable = {
                     }
                 }
                 $table.append($tableBody);
+                updatePlainText();
 
                 if (write) {
                     $table.append("<colgroup><col span='1' style='width: 5%;'><col span='1' style='width: 50%;'><col span='1' style='width: 35%;'></colgroup><col span='1' style='width: 10%;'></colgroup>");
