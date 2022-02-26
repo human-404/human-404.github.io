@@ -98,7 +98,10 @@ function renderControl(element) {
 
             // chip children
             var list = [];
-            for (var child of tagCol.children) {
+            var chipText = tagCol.children[0].innerHTML; // first child
+            list.push(chipText);
+            for (let i = 1; i < tagCol.children.length; i ++){
+                child = tagCol.children[i];
                 var chipText = " " + child.innerHTML;
                 list.push(chipText);
             }
