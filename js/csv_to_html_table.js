@@ -206,7 +206,7 @@ CsvToHtmlTable = {
                         if (colIdx == -1 || colIdx == 2) {
                             $tableBodyRowTd = (write) ? $("<td contenteditable='false' align='center'></td>") : $("<td align='center'></td>");
                         } else {
-                            $tableBodyRowTd = (write) ? $("<td contenteditable='true' class='plainText' align='center'></td>") : $("<td align='center'></td>");
+                            $tableBodyRowTd = (write) ? $("<td contenteditable='false' class='plainText' align='center'></td>") : $("<td align='center'></td>");
                         }
                         var cellTemplateFunc = customTemplates[colIdx];
                         if (cellTemplateFunc) {
@@ -215,7 +215,13 @@ CsvToHtmlTable = {
                             if (colIdx == -1) {
                                 $tableBodyRowTd.text(shuffleOrder[rowIdx - 1]); // randomize the order
                             } else if (colIdx == 1) {
-                                var list = (csvData[rowIdx][colIdx]).split(", ");
+                                var list = ((csvData[rowIdx][colIdx]).split(", "));
+                                list = list.sort(function(a,b) {
+                                    a = a.toLowerCase();
+                                    b = b.toLowerCase();
+                                    if( a == b) return 0;
+                                    return a < b ? -1 : 1;
+                                });
                                 for (var element of list) {
                                     var $button = $("<button class='chip' onclick='wikipedia(this)'>" + element + "</button>");
                                     $tableBodyRowTd.append($button);
