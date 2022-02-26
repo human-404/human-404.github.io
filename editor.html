@@ -25,7 +25,7 @@
         <input id="updateCSV" type="submit" value="update csv" onClick="return empty()"> &#160&#160&#160
     </form>
     &#160&#160&#160&#160<a href="table.html">BACK</a>
-    <button id="updateCSVTable" onclick="updateTable()">update table</button>
+    <button id="updateCSVTable" onclick="updateTable(true)">update table</button>
     <input id="reloadPage" type="button" value="reload page" onClick="document.location.reload(true)">
     <br><br>
     <div class="container-fluid">
@@ -140,13 +140,15 @@
             var x;
             x = document.getElementById("formInput").value;
             if (x == "") {
-                updateTable();
-                alert("table is updated");
-                return false;
+                updateTable(false);
+                return true;
             };
         }
 
-        function updateTable() {
+        function updateTable(bool) {
+            if (bool) {
+                alert("complete");
+            }
             var idTable = document.getElementById("table-container-table");
 
             var table = [];
@@ -182,7 +184,6 @@
                 table.push(innerList);
             }
             document.getElementById("formInput").value = JSON.stringify(table); // pass Javascript array to php
-            alert("table is updated");
         }
 
         CsvToHtmlTable.init({
