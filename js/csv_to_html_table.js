@@ -126,6 +126,12 @@ function renderControl(element) {
             function complete() {
                 // chip
                 var list = (tagCol.innerHTML).split(", ");
+                list = list.sort(function(a,b) {
+                    a = a.toLowerCase();
+                    b = b.toLowerCase();
+                    if( a == b) return 0;
+                    return a < b ? -1 : 1;
+                });
                 var textInit = "";
                 for (var item of list) {
                     textInit = textInit.concat("<button class='chip' onclick='wikipedia(this)'>" + item + "</button>");
