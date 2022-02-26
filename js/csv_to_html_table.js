@@ -214,14 +214,14 @@ CsvToHtmlTable = {
                         } else {
                             if (colIdx == -1) {
                                 $tableBodyRowTd.text(shuffleOrder[rowIdx - 1]); // randomize the order
-                            } else if (colIdx == 1 && !write) {
+                            } else if (colIdx == 1) {
                                 var list = (csvData[rowIdx][colIdx]).split(", ");
                                 for (var element of list) {
                                     var $button = $("<button class='chip' onclick='wikipedia(this)'>" + element + "</button>");
                                     $tableBodyRowTd.append($button);
                                 }
                             } else if (colIdx == 0 && write) {
-                                var $TeXdiv = $("<div class='tex2jax_ignore'>" + csvData[rowIdx][colIdx] + "</div>");
+                                var $TeXdiv = $("<div class='isRendered'>" + csvData[rowIdx][colIdx] + "</div>");
                                 $tableBodyRowTd.append($TeXdiv);
                             } else if (colIdx == 2 && write) {
                                 var $delButton = $("<button class='control-panel-button' id='delButton' onclick='tableDeleteRow(this)' contenteditable='false'><img src='assets/bin.png'/></button>");
