@@ -1,182 +1,76 @@
 LaTeX,Description
-"$$
-y(x, \mathbf{w})=w_{0}+w_{1} x+w_{2} x^{2}+\ldots+w_{M} x^{M}=\sum_{j=0}^{M} w_{j} x^{j}
-$$","polynomial curve fitting, error minimization"
-"$$
-E(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}
-$$","sum-of-squares error function"
-"$$
-\widetilde{E}(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\lambda}{2}\|\mathbf{w}\|^{2}
-$$","quadratic regularizer, ridge regression, weight decay (neural networks), shrinkage (statistics literature)"
-"$$
-E_{\mathrm{RMS}}=\sqrt{2 E\left(\mathbf{w}^{\star}\right) / N}
-$$","root-mean-square (RMS) error"
-"$$
-p(X)=\sum_{Y} p(X, Y)
-$$","sum rule of probability"
-"$$
-p(X, Y)=p(Y \mid X) p(X)
-$$","product rule of probability"
-"$$
-p(Y \mid X)=\frac{p(X \mid Y) p(Y)}{p(X)}
-$$","Bayes' theorem "
-"$$
-\int_{-\infty}^{\infty} e^{-a(x+b)^{2}} d x=\sqrt{\frac{\pi}{a}}
-$$","Gaussian integral, Euler-Poisson integral"
-"$$
-\begin{aligned}
-p(x) & \geqslant 0 \\
-\int_{-\infty}^{\infty} p(x) \mathrm{d} x &=1
-\end{aligned}
-$$","Kolmogorov axioms, probability axioms"
-"$$
-\begin{aligned}
-p_{y}(y) &=p_{x}(x)\left|\frac{\mathrm{d} x}{\mathrm{~d} y}\right| \\
-&=p_{x}(g(y))\left|g^{\prime}(y)\right|
-\end{aligned}
-$$","Jacobian transformation, change of variable, Jacobian factor"
-"$$
-\|\boldsymbol{x}\|_{2}:=\sqrt{x_{1}^{2}+\cdots+x_{n}^{2}}
-$$","Euclidean distance, Euclidean norm"
-"$$
-\begin{aligned}
-p(x) &=\int p(x, y) \mathrm{d} y \\
-p(x, y) &=p(y \mid x) p(x) .
-\end{aligned}
-$$","sum rule and product rule for continuous variables"
-"$$
-\begin{aligned}
+"$$ \mathcal{N}\left(x \mid \mu, \sigma^{2}\right)=\frac{1}{\left(2 \pi \sigma^{2}\right)^{1 / 2}} \exp \left\{-\frac{1}{2 \sigma^{2}}(x-\mu)^{2}\right\} $$","Gaussian distribution, normal distribution"
+"$$ \begin{aligned}
+\mathrm{KL}(p \| q) &=-\int p(\mathbf{x}) \ln q(\mathbf{x}) \mathrm{d} \mathbf{x}-\left(-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \\
+&=-\int p(\mathbf{x}) \ln \left\{\frac{q(\mathbf{x})}{p(\mathbf{x})}\right\} \mathrm{d} \mathbf{x} \\ D_{\mathrm{KL}}[p(x): q(x)] &= \int p(x) \log \left(\frac{p(x)}{q(x)}\right) \mathrm{d} x \end{aligned} $$","KL divergence, Kullback-Leibler divergence, relative entropy"
+"$$ \mathbb{E}\left[L_{q}\right]=\iint|y(\mathbf{x})-t|^{q} p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t $$","Minkowski loss"
+"$$ \begin{aligned}
+\mu_{\mathrm{ML}}&=\frac{1}{N} \sum_{n=1}^{N} x_{n} \\ \sigma_{\mathrm{ML}}^{2}&=\frac{1}{N} \sum_{n=1}^{N}\left(x_{n}-\mu_{\mathrm{ML}}\right)^{2} \\ \mathbb{E}\left[\mu_{\mathrm{ML}}\right] &=\mu \\
+\mathbb{E}\left[\sigma_{\mathrm{ML}}^{2}\right] &=\left(\frac{N-1}{N}\right) \sigma^{2}
+\end{aligned} $$","bias, maximum likelihood solution, normal distribution, true mean, true variance"
+"$$ \mathrm{I}[\mathbf{x}, \mathbf{y}]=\mathrm{H}[\mathbf{x}]-\mathrm{H}[\mathbf{x} \mid \mathbf{y}]=\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y} \mid \mathbf{x}] $$","conditional entropy, mutual information"
+"$$ {E}(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\lambda}{2}\|\mathbf{w}\|^{2} $$","ridge regression, shrinkage (statistics), weight decay"
+"$$ \begin{aligned} A(\eta ) &=\log \left(\int _{X}h(x)\,\exp(\eta (\theta )\cdot T(x))\,\mathrm {d\,} x\right) \\ \psi(\boldsymbol{\eta}) &=\log \int \exp \left(\boldsymbol{\eta}^{\top} \boldsymbol{u}(x)\right) \mathrm{d} x \end{aligned} $$","exponential family, log-partition function, normalisation factor"
+"$$ \operatorname{var}_{\boldsymbol{\theta}}[\boldsymbol{\theta}]=\mathbb{E}_{\mathcal{D}}\left[\operatorname{var}_{\boldsymbol{\theta}}[\boldsymbol{\theta} \mid \mathcal{D}]\right]+\operatorname{var}_{\mathcal{D}}\left[\mathbb{E}_{\boldsymbol{\theta}}[\boldsymbol{\theta} \mid \mathcal{D}]\right] $$","law of total variance"
+"$$ \operatorname{Bin}(m \mid N, \mu)=\left(\begin{array}{l}
+N \\
+m
+\end{array}\right) \mu^{m}(1-\mu)^{N-m} $$","binomial distribution"
+"$$ f(x)=\sqrt{\frac{\beta}{2 \pi}} e^{-\beta(x-\mu)^{2} / 2}, \quad \beta=1 / \sigma^{2} $$","Gaussian distribution, normal distribution, precision, reciprocal of the variance"
+"$$ p(t \mid x, \mathbf{x}, \mathbf{t})=\int p(t \mid x, \mathbf{w}) p(\mathbf{w} \mid \mathbf{x}, \mathbf{t}) \mathrm{d} \mathbf{w} $$","curve fitting, polynomial, predictive distribution"
+"$$ \operatorname{Mult}\left(m_{1}, m_{2}, \ldots, m_{K} \mid \boldsymbol{\mu}, N\right)=\binom{N}{m_{1} m_{2} \ldots m_{K}} \prod_{k=1}^{K} \mu_{k}^{m_{k}} $$","multinomial distribution"
+"$$ \arg \max $$","arg max, argument of the maxima"
+"$$ p(X, Y)=p(Y \mid X) p(X) $$","chain rule (probability)"
+"$$ \mathbb{E}[L]=\iint L(t, y(\mathbf{x})) p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t $$","expected loss, loss function, regression analysis"
+"$$ \operatorname{Dir}(\boldsymbol{\mu} \mid \boldsymbol{\alpha})=\frac{\Gamma\left(\alpha_{0}\right)}{\Gamma\left(\alpha_{1}\right) \cdots \Gamma\left(\alpha_{K}\right)} \prod_{k=1}^{K} \mu_{k}^{\alpha_{k}-1} $$","Dirichlet distribution, gamma function"
+"$$ \gamma\left(z_{n k}\right)=\frac{\pi_{k} \mathcal{N}\left(\mathbf{x}_{n} \mid \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\mathbf{x}_{n} \mid \boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}\right)} $$","E-step, expectation–maximization algorithm, Gaussian mixture model, responsibility"
+"$$ f\left(\int \mathbf{x} p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \leqslant \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d} \mathbf{x} $$","convex set, Jensen's inequality"
+"$$ \Delta^{2}=(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}) $$","exponent, Gaussian distribution, Mahalanobis distance"
+"$$ z_{j}=h\left(a_{j}\right) $$","activation function, artificial neural network, differentiable, hidden layer, nonlinear function"
+"$$ p(\mathbf{w} \mid \mathcal{D})=\frac{p(\mathcal{D} \mid \mathbf{w}) p(\mathbf{w})}{p(\mathcal{D})} $$","Bayes' theorem, Bayesian inference, conditional probability, likelihood function"
+"$$ \begin{aligned}
 \operatorname{cov}[x, y] &=\mathbb{E}_{x, y}[\{x-\mathbb{E}[x]\}\{y-\mathbb{E}[y]\}] \\
 &=\mathbb{E}_{x, y}[x y]-\mathbb{E}[x] \mathbb{E}[y] \\
 \operatorname{cov}[\mathbf{x}, \mathbf{y}] &=\mathbb{E}_{\mathbf{x}, \mathbf{y}}\left[\{\mathbf{x}-\mathbb{E}[\mathbf{x}]\}\left\{\mathbf{y}^{\mathrm{T}}-\mathbb{E}\left[\mathbf{y}^{\mathrm{T}}\right]\right\}\right] \\
 &=\mathbb{E}_{\mathbf{x}, \mathbf{y}}\left[\mathbf{x y}^{\mathrm{T}}\right]-\mathbb{E}[\mathbf{x}] \mathbb{E}\left[\mathbf{y}^{\mathrm{T}}\right]
-\end{aligned}
-$$","covariance, covariance matrix"
-"$$
-p(\mathbf{w} \mid \mathcal{D})=\frac{p(\mathcal{D} \mid \mathbf{w}) p(\mathbf{w})}{p(\mathcal{D})}
-$$","Bayes' theorem, Bayesian inference, likelihood function, conditional probability "
-"$$
-\text { posterior } \propto \text { likelihood } \times \text { prior }
-$$","Bayes' theorem, posterior, prior"
-"$$
-p(\mathcal{D})=\int p(\mathcal{D} \mid \mathbf{w}) p(\mathbf{w}) \mathrm{d} \mathbf{w}
-$$","denominator, Bayes' theorem"
-"$$
-\mathcal{N}\left(x \mid \mu, \sigma^{2}\right)=\frac{1}{\left(2 \pi \sigma^{2}\right)^{1 / 2}} \exp \left\{-\frac{1}{2 \sigma^{2}}(x-\mu)^{2}\right\}
-$$","Gaussian distribution, normal distribution"
-"$$
-f(x)=\sqrt{\frac{\beta}{2 \pi}} e^{-\beta(x-\mu)^{2} / 2}, \quad \beta=1 / \sigma^{2}
-$$","Gaussian distribution, normal distribution, precision, reciprocal of the variance"
-"$$
-\mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}, \boldsymbol{\Sigma})=\frac{1}{(2 \pi)^{D / 2}} \frac{1}{|\boldsymbol{\Sigma}|^{1 / 2}} \exp \left\{-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right\}
-$$","multivariate normal distribution, multivariate Gaussian distribution, joint normal distribution, determinant, covariance, D-dimensional vector"
-"$$
-\begin{array}{l}
-\mu_{\mathrm{ML}}=\frac{1}{N} \sum_{n=1}^{N} x_{n} \\
-\sigma_{\mathrm{ML}}^{2}=\frac{1}{N} \sum_{n=1}^{N}\left(x_{n}-\mu_{\mathrm{ML}}\right)^{2}
-\end{array}
-$$","sample mean, sample variance, maximum likelihood solution, normal distribution, Gaussian distribution"
-"$$
-\begin{aligned}
-\mathbb{E}\left[\mu_{\mathrm{ML}}\right] &=\mu \\
-\mathbb{E}\left[\sigma_{\mathrm{ML}}^{2}\right] &=\left(\frac{N-1}{N}\right) \sigma^{2}
-\end{aligned}
-$$","true mean, true variance, underestimation, bias, normal distribution"
-"$$
-p(t \mid x, \mathbf{w}, \beta)=\mathcal{N}\left(t \mid y(x, \mathbf{w}), \beta^{-1}\right)
-$$","polynomial curve fitting, target variable, probabilistic inference, Bayesian"
-"$$
-\begin{array}{l}
-p(\mathbf{t} \mid \mathbf{x}, \mathbf{w}, \beta)=\prod_{n=1}^{N} \mathcal{N}\left(t_{n} \mid y\left(x_{n}, \mathbf{w}\right), \beta^{-1}\right) \\
-\frac{1}{\beta_{\mathrm{ML}}}=\frac{1}{N} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}_{\mathrm{ML}}\right)-t_{n}\right\}^{2} \\
-p(\mathbf{w} \mid \alpha)=\mathcal{N}\left(\mathbf{w} \mid \mathbf{0}, \alpha^{-1} \mathbf{I}\right)=\left(\frac{\alpha}{2 \pi}\right)^{(M+1) / 2} \exp \left\{-\frac{\alpha}{2} \mathbf{w}^{\mathrm{T}} \mathbf{w}\right\} \\
-p(\mathbf{w} \mid \mathbf{x}, \mathbf{t}, \alpha, \beta) \propto p(\mathbf{t} \mid \mathbf{x}, \mathbf{w}, \beta) p(\mathbf{w} \mid \alpha) \\
-\mathbf{w}_{\mathrm{MAP}}=\arg \min _{\mathbf{w}} \frac{\beta}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\alpha}{2} \mathbf{w}^{\mathrm{T}} \mathbf{w}
-\end{array}
-$$","regularized sum-of-squares error, maximum a posteriori probability (MAP) estimate, polynomial curve fitting"
-"$$
-p(t \mid x, \mathbf{x}, \mathbf{t})=\int p(t \mid x, \mathbf{w}) p(\mathbf{w} \mid \mathbf{x}, \mathbf{t}) \mathrm{d} \mathbf{w}
-$$","predictive distribution, polynomial curve fitting "
-"$$
-\begin{aligned}
-p(t \mid x, \mathbf{x}, \mathbf{t})&=\mathcal{N}\left(t \mid m(x), s^{2}(x)\right) \\
-m(x)&=\beta \boldsymbol{\phi}(x)^{\mathrm{T}} \mathbf{S} \sum_{n=1}^{N} \boldsymbol{\phi}\left(x_{n}\right) t_{n} \\
-s^{2}(x)&=\beta^{-1}+\boldsymbol{\phi}(x)^{\mathrm{T}} \mathbf{S} \boldsymbol{\phi}(x) \\
-\mathbf{S}^{-1}&=\alpha \mathbf{I}+\beta \sum_{n=1}^{N} \boldsymbol{\phi}\left(x_{n}\right) \boldsymbol{\phi}(x)^{\mathrm{T}} \\ \boldsymbol{\phi}(x)&:\phi_{i}(x)=x^{i},\quad i=0,\dots,M
-\end{aligned}
-$$","analytical solution, predictive distribution, polynomial curve fitting "
-"$$
-\ln p\left(\mathcal{D} \mid \mathbf{w}_{\mathrm{ML}}\right)-M
-$$","Akaike information criterion, AIC, best-fit log likelihood"
-"$$
-y(\mathbf{x}, \mathbf{w})=w_{0}+\sum_{i=1}^{D} w_{i} x_{i}+\sum_{i=1}^{D} \sum_{j=1}^{D} w_{i j} x_{i} x_{j}+\sum_{i=1}^{D} \sum_{j=1}^{D} \sum_{k=1}^{D} w_{i j k} x_{i} x_{j} x_{k}
-$$","the curse of dimensionality"
-"$$
-p\left(\mathcal{C}_{k} \mid \mathbf{x}\right)=\frac{p\left(\mathbf{x} \mid \mathcal{C}_{k}\right) p\left(\mathcal{C}_{k}\right)}{p(\mathbf{x})}
-$$","Bayes' theorem, classification, decision theory"
-"$$
-\mathbb{E}[L]=\iint L(t, y(\mathbf{x})) p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t
-$$","expected loss, loss function, regression"
-"$$
-\mathbb{E}\left[L_{q}\right]=\iint|y(\mathbf{x})-t|^{q} p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t
-$$","Minkowski loss"
-"$$
-\mathrm{H}=-\lim _{N \rightarrow \infty} \sum_{i}\left(\frac{n_{i}}{N}\right) \ln \left(\frac{n_{i}}{N}\right)=-\sum_{i} p_{i} \ln p_{i}
-$$","microstate, macrostate, weight, entropy"
-"$$
-\ln N ! \simeq N \ln N-N
-$$","Stirling's approximation"
-"$$
-\mathrm{H}[\mathbf{x}]=-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}
-$$","differential entropy"
-"$$
-\mathrm{H}[\mathbf{y} \mid \mathbf{x}]=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x}
-$$","conditional entropy"
-"$$
-\begin{aligned}
-\mathrm{KL}(p \| q) &=-\int p(\mathbf{x}) \ln q(\mathbf{x}) \mathrm{d} \mathbf{x}-\left(-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \\
-&=-\int p(\mathbf{x}) \ln \left\{\frac{q(\mathbf{x})}{p(\mathbf{x})}\right\} \mathrm{d} \mathbf{x} .
-\end{aligned}
-$$","Kullback-Leibler divergence, KL divergence, relative entropy"
-"$$
-f(\lambda a+(1-\lambda) b) \leqslant \lambda f(a)+(1-\lambda) f(b)
-$$","convexity, convex function, concave"
-"$$
-f\left(\int \mathbf{x} p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \leqslant \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d} \mathbf{x}
-$$","Jensen's inequality, convexity, expectation"
-"$$
-\begin{aligned}
-\mathrm{I}[\mathbf{x}, \mathbf{y}] & \equiv \operatorname{KL}(p(\mathbf{x}, \mathbf{y}) \| p(\mathbf{x}) p(\mathbf{y})) \\
-&=-\iint p(\mathbf{x}, \mathbf{y}) \ln \left(\frac{p(\mathbf{x}) p(\mathbf{y})}{p(\mathbf{x}, \mathbf{y})}\right) \mathrm{d} \mathbf{x} \mathrm{d} \mathbf{y}
-\end{aligned}
-$$","mutual information, joint distribution, Kullback-Leibler divergence"
-"$$
-\mathrm{I}[\mathbf{x}, \mathbf{y}]=\mathrm{H}[\mathbf{x}]-\mathrm{H}[\mathbf{x} \mid \mathbf{y}]=\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y} \mid \mathbf{x}]
-$$","mutual information, conditional entropy"
-"$$
-\operatorname{Bin}(m \mid N, \mu)=\left(\begin{array}{l}
-N \\
-m
-\end{array}\right) \mu^{m}(1-\mu)^{N-m}
-$$","binomial distribution"
-"$$
-\operatorname{Beta}(\mu \mid a, b)=\frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)} \mu^{a-1}(1-\mu)^{b-1}
-$$","beta distribution, gamma function, conjugacy, prior distribution"
-"$$
-\operatorname{Dir}(\boldsymbol{\mu} \mid \boldsymbol{\alpha})=\frac{\Gamma\left(\alpha_{0}\right)}{\Gamma\left(\alpha_{1}\right) \cdots \Gamma\left(\alpha_{K}\right)} \prod_{k=1}^{K} \mu_{k}^{\alpha_{k}-1}
-$$","Dirichlet distribution, gamma function"
-"$$
-\Delta^{2}=(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})
-$$","Mahalanobis distance, exponent, Gaussian distribution"
-"$$
-z_{j}=h\left(a_{j}\right)
-$$","hidden units, differentiable nonlinear activation function, neural networks, activations, output unit activations"
-"$$
-a_{j}=\sum_{i=1}^{D} w_{j i}^{(1)} x_{i}+w_{j 0}^{(1)}
-$$","first layer, linear combinations, weights, biases, input variables, series of functional transformations"
-"$$
-y_{k}(\mathbf{x}, \mathbf{w})=\sigma\left(\sum_{j=1}^{M} w_{k j}^{(2)} h\left(\sum_{i=1}^{D} w_{j i}^{(1)} x_{i}+w_{j 0}^{(1)}\right)+w_{k 0}^{(2)}\right)
-$$","sigmoidal output unit activation, forward propagation"
-"$$
-E(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\|\mathbf{y}\left(\mathbf{x}_{n}, \mathbf{w}\right)-\mathbf{t}_{n}\right\|^{2}
-$$","network training, target vectors, error function, input vectors, sum-of-squares error function"
+\end{aligned} $$","covariance, covariance matrix"
+"$$ \ln p\left(\mathcal{D} \mid \mathbf{w}_{\mathrm{ML}}\right)-M $$","AIC, Akaike information criterion, log likelihood"
+"$$ p\left(\mathcal{C}_{k} \mid \mathbf{x}\right)=\frac{p\left(\mathbf{x} \mid \mathcal{C}_{k}\right) p\left(\mathcal{C}_{k}\right)}{p(\mathbf{x})} $$","Bayes' theorem, decision theory, statistical classification"
+"$$ \mathrm{H}=-\lim _{N \rightarrow \infty} \sum_{i}\left(\frac{n_{i}}{N}\right) \ln \left(\frac{n_{i}}{N}\right)=-\sum_{i} p_{i} \ln p_{i} $$","entropy, macrostate, microstate, weight"
+"$$ \text { posterior } \propto \text { likelihood } \times \text { prior } $$","Bayes' theorem, likelihood, posterior, prior"
+"$$ \arg \min $$","arg min, argument of the minimum"
+"$$ \|\boldsymbol{x}\|_{2}:=\sqrt{x_{1}^{2}+\cdots+x_{n}^{2}} $$","Euclidean distance, Euclidean norm"
+"$$ \int_{-\infty}^{\infty} e^{-a(x+b)^{2}} d x=\sqrt{\frac{\pi}{a}} $$","Euler-Poisson integral, Gaussian integral"
+"$$ y(x, \mathbf{w})=w_{0}+w_{1} x+w_{2} x^{2}+\ldots+w_{M} x^{M}=\sum_{j=0}^{M} w_{j} x^{j} $$","curve fitting, polynomial"
+"$$\begin{aligned}
+p(x) &=\int p(x, y) \mathrm{d} y \\
+p(x, y) &=p(y \mid x) p(x) .
+\end{aligned}$$","continuous variables, law of total probability, marginal distribution, product rule"
+"$$ \begin{aligned}\left(\begin{array}{ll} \mathbf{A} & \mathbf{B} \\ \mathbf{C} & \mathbf{D} \end{array}\right)^{-1}&=\left(\begin{array}{cc} \mathbf{M} & -\mathbf{M B D}^{-1} \\ -\mathbf{D}^{-1} \mathbf{C M} & \mathbf{D}^{-1}+\mathbf{D}^{-1} \mathbf{C M B D}^{-1} \end{array}\right) \\ \mathbf{M}&=\left(\mathbf{A}-\mathbf{B D}^{-1} \mathbf{C}\right)^{-1} \end{aligned}$$","Schur complement"
+"$$ p(Y \mid X)=\frac{p(X \mid Y) p(Y)}{p(X)} $$","Bayes' theorem"
+"$$ \begin{aligned}
+p_{y}(y) &=p_{x}(x)\left|\frac{\mathrm{d} x}{\mathrm{~d} y}\right| \\
+&=p_{x}(g(y))\left|g^{\prime}(y)\right|
+\end{aligned} $$","change of variable, Jacobian factor, Jacobian transformation"
+"$$ f(\lambda a+(1-\lambda) b) \leqslant \lambda f(a)+(1-\lambda) f(b) $$","convex function, convexity"
+"$$ \begin{aligned} p(\mathbf{x} \mid \boldsymbol{\eta}) &=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \\ q(x \mid \boldsymbol{\eta}) &=\exp \left(\boldsymbol{\eta}^{\top} \boldsymbol{u}(x)-\psi(\boldsymbol{\eta})\right)\end{aligned} $$","exponential family, natural parameter"
+"$$ \begin{aligned}
+\boldsymbol{\mu}_{k}^{\text {new }} &=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma\left(z_{n k}\right) \mathbf{x}_{n} \\
+\boldsymbol{\Sigma}_{k}^{\text {new }} &=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma\left(z_{n k}\right)\left(\mathbf{x}_{n}-\boldsymbol{\mu}_{k}^{\text {new }}\right)\left(\mathbf{x}_{n}-\boldsymbol{\mu}_{k}^{\text {new }}\right)^{\mathrm{T}} \\
+\pi_{k}^{\text {new }} &=\frac{N_{k}}{N} \\ N_{k} &= \sum_{n=1}^N \gamma(z_{nk}) \\ \ln p(\mathbf{X} \mid \boldsymbol{\mu}, \boldsymbol{\Sigma}, \boldsymbol{\pi}) &= \sum_{n=1}^{N} \ln \left\{\sum_{k=1}^{K} \pi_{k} \mathcal{N}\left(\mathbf{x}_{n} \mid \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)\right\} \end{aligned} $$","expectation–maximization algorithm, Gaussian mixture model, M-step, responsibility"
+"$$ \mathbb{E}_{\boldsymbol{\theta}}[\boldsymbol{\theta}]=\mathbb{E}_{\mathcal{D}}\left[\mathbb{E}_{\boldsymbol{\theta}}[\boldsymbol{\theta} \mid \mathcal{D}]\right] $$","law of total expectation"
+"$$ \operatorname{Beta}(\mu \mid a, b)=\frac{\Gamma(a+b)}{\Gamma(a) \Gamma(b)} \mu^{a-1}(1-\mu)^{b-1} $$","beta distribution, conjugacy, gamma function, prior distribution"
+"$$ \mathrm{H}[\mathbf{y} \mid \mathbf{x}]=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x} $$","conditional entropy"
+"$$ y(\mathbf{x}, \mathbf{w})=w_{0}+\sum_{i=1}^{D} w_{i} x_{i}+\sum_{i=1}^{D} \sum_{j=1}^{D} w_{i j} x_{i} x_{j}+\sum_{i=1}^{D} \sum_{j=1}^{D} \sum_{k=1}^{D} w_{i j k} x_{i} x_{j} x_{k} $$","the curse of dimensionality"
+"$$ a_{j}=\sum_{i=1}^{D} w_{j i}^{(1)} x_{i}+w_{j 0}^{(1)} $$","bias (statistics), linear combination, weight"
+"$$ \mathrm{H}[\mathbf{x}]=-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x} $$","differential entropy"
+"$$ f(x)=\exp(x) $$","exponential function"
+"$$ \ln N ! \simeq N \ln N-N $$","Stirling's approximation"
+"$$ E_{\mathrm{RMS}}=\sqrt{2 E\left(\mathbf{w}^{\star}\right) / N} $$","root mean square"
+"$$ \begin{aligned}
+p(x) & \geqslant 0 \\
+\int_{-\infty}^{\infty} p(x) \mathrm{d} x &=1
+\end{aligned} $$","Kolmogorov axioms, probability axioms"
+"$$ E(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2} $$","residual sum of squares"
+"$$ \begin{aligned} \boldsymbol{\mu}_{a \mid b} &=\boldsymbol{\mu}_{a}+\boldsymbol{\Sigma}_{a b} \boldsymbol{\Sigma}_{b b}^{-1}\left(\mathbf{x}_{b}-\boldsymbol{\mu}_{b}\right) \\ \boldsymbol{\Sigma}_{a \mid b} &=\boldsymbol{\Sigma}_{a a}-\boldsymbol{\Sigma}_{a b} \boldsymbol{\Sigma}_{b b}^{-1} \boldsymbol{\Sigma}_{b a} \end{aligned} $$","conditional distribution, multivariate Gaussian distribution"
+"$$ \mathcal{N}(\mathbf{x} \mid \boldsymbol{\mu}, \boldsymbol{\Sigma})=\frac{1}{(2 \pi)^{D / 2}} \frac{1}{|\boldsymbol{\Sigma}|^{1 / 2}} \exp \left\{-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right\} $$","covariance, determinant, joint normal distribution, multivariate distribution, multivariate Gaussian distribution, multivariate normal distribution"
