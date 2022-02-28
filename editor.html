@@ -27,6 +27,10 @@
     &#160&#160&#160&#160<a href="table.html">BACK</a>
     <button id="updateCSVTable" onclick="updateTable(true)">update table</button>
     <input id="reloadPage" type="button" value="reload page" onClick="document.location.reload(true)">
+    <form action="backup.php" method="post">
+        <input id="formInput_backup" type="hidden" name="backup"> <!-- hidden from user -->
+        <input id="updateCSV_backup" type="submit" value="backup" onClick="return empty_backup()">
+    </form>
     <br><br>
     <div class="container-fluid">
         <main class="row">
@@ -72,6 +76,13 @@
             padding: 0 10px;
             border-radius: 25px;
             background-image: linear-gradient(to right, violet,red);
+            margin: 1px;
+        }
+        #updateCSV_backup {
+            display: inline-block;
+            padding: 0 10px;
+            border-radius: 25px;
+            background-image: linear-gradient(to right, lemonchiffon, lightgreen);
             margin: 1px;
         }
         #delButton { 
@@ -149,6 +160,19 @@
             };
         }
 
+        function empty_backup() {
+            if (document.getElementsByClassName("form-control form-control-sm")[0].value) {
+                alert("disabled");
+                return false;
+            }
+            var x;
+            x = document.getElementById("formInput_backup").value;
+            if (x == "") {
+                updateTable(false);
+                return true;
+            };
+        }
+
         function updateTable(bool) {
             if (bool) {
                 alert("complete");
@@ -188,6 +212,7 @@
                 table.push(innerList);
             }
             document.getElementById("formInput").value = JSON.stringify(table); // pass Javascript array to php
+            document.getElementById("formInput_backup").value = JSON.stringify(table); // pass Javascript array to php
         }
 
         CsvToHtmlTable.init({
