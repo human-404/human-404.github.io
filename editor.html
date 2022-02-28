@@ -137,6 +137,10 @@
         }
 
         function empty() {
+            if (document.getElementsByClassName("form-control form-control-sm")[0].value) {
+                alert("disabled");
+                return false;
+            }
             var x;
             x = document.getElementById("formInput").value;
             if (x == "") {
