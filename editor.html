@@ -213,6 +213,7 @@
 
                 table.push(innerList);
             }
+            table.sort(function(x, y){return x[1] - y[1];});
             document.getElementById("formInput").value = JSON.stringify(table); // pass Javascript array to php
             document.getElementById("formInput_backup").value = JSON.stringify(table); // pass Javascript array to php
         }
