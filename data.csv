@@ -105,6 +105,7 @@ p(x) & \geqslant 0 \\
 "$$ {\displaystyle \operatorname {tr} (\mathbf {A} )=\sum _{i=1}^{n}a_{ii}=a_{11}+a_{22}+\dots +a_{nn}} $$","linear algebra, matrix, square matrix, trace"
 "$$ \mathbb{E}\left[L_{q}\right]=\iint|y(\mathbf{x})-t|^{q} p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t $$","Minkowski loss"
 "$$ \operatorname{Mult}\left(m_{1}, m_{2}, \ldots, m_{K} \mid \boldsymbol{\mu}, N\right)=\binom{N}{m_{1} m_{2} \ldots m_{K}} \prod_{k=1}^{K} \mu_{k}^{m_{k}} $$","multinomial distribution"
+"$$ \frac{X, A \vdash \bot}{X \vdash \neg A} \neg \mathrm{I}, \quad \frac{A \quad \neg A}{\bot} \neg \mathrm{E}$$","negation elimination, negation introduction"
 "$$ {E}(\mathbf{w})=\frac{1}{2} \sum_{n=1}^{N}\left\{y\left(x_{n}, \mathbf{w}\right)-t_{n}\right\}^{2}+\frac{\lambda}{2}\|\mathbf{w}\|^{2} $$","ridge regression, shrinkage (statistics), weight decay"
 "$$ E_{\mathrm{RMS}}=\sqrt{2 E\left(\mathbf{w}^{\star}\right) / N} $$","root mean square"
 "$$ \begin{aligned}\left(\begin{array}{ll} \mathbf{A} & \mathbf{B} \\ \mathbf{C} & \mathbf{D} \end{array}\right)^{-1}&=\left(\begin{array}{cc} \mathbf{M} & -\mathbf{M B D}^{-1} \\ -\mathbf{D}^{-1} \mathbf{C M} & \mathbf{D}^{-1}+\mathbf{D}^{-1} \mathbf{C M B D}^{-1} \end{array}\right) \\ \mathbf{M}&=\left(\mathbf{A}-\mathbf{B D}^{-1} \mathbf{C}\right)^{-1} \end{aligned}$$","Schur complement"
