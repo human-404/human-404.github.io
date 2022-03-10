@@ -131,7 +131,15 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="js/csv_to_html_table.js"></script>
-
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                availableFonts: [],
+                preferredFont: null,
+                webFont: "Latin-Modern"
+            }
+        });
+    </script>
     <script>
         function pastePlainText(e) {
             e.stopPropagation();
