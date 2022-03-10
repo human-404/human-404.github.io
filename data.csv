@@ -63,6 +63,7 @@ p(x, y) &=p(y \mid x) p(x) .
 "$$ p(t \mid x, \mathbf{x}, \mathbf{t})=\int p(t \mid x, \mathbf{w}) p(\mathbf{w} \mid \mathbf{x}, \mathbf{t}) \mathrm{d} \mathbf{w} $$","curve fitting, polynomial, predictive distribution"
 "$$ \mathrm{H}[\mathbf{x}]=-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x} $$","differential entropy"
 "$$ \operatorname{Dir}(\boldsymbol{\mu} \mid \boldsymbol{\alpha})=\frac{\Gamma\left(\alpha_{0}\right)}{\Gamma\left(\alpha_{1}\right) \cdots \Gamma\left(\alpha_{K}\right)} \prod_{k=1}^{K} \mu_{k}^{\alpha_{k}-1} $$","Dirichlet distribution, gamma function"
+"$$ \frac{A}{A \lor B} \lor \mathrm{I} \quad \frac{B}{A \lor B} \lor \mathrm{I} $$","disjunction introduction, or introduction"
 "$$ J=\sum_{n=1}^{N} \sum_{k=1}^{K} r_{n k}\left\|\mathbf{x}_{n}-\boldsymbol{\mu}_{k}\right\|^{2} $$","distortion measure, k-means clustering, objective function"
 "$$ \frac{\neg \neg A}{A} \neg \neg \mathrm{E} \quad \frac{A}{\neg \neg A} \neg \neg \mathrm{I} $$","double negation, double negation elimination, double negation introduction"
 "$$ \gamma\left(z_{n k}\right)=\frac{\pi_{k} \mathcal{N}\left(\mathbf{x}_{n} \mid \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)}{\sum_{j=1}^{K} \pi_{j} \mathcal{N}\left(\mathbf{x}_{n} \mid \boldsymbol{\mu}_{j}, \boldsymbol{\Sigma}_{j}\right)} $$","E-step, expectation–maximization algorithm, Gaussian mixture model, responsibility"

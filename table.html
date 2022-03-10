@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Table</title>
     <meta content="Display any CSV file as a searchable, filterable, pretty HTML table">
-
     <!-- LaTeX -->
     <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!-- Bootstrap core CSS -->
@@ -55,12 +54,20 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="js/csv_to_html_table.js"></script>
-
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+                availableFonts: [],
+                preferredFont: null,
+                webFont: "Latin-Modern"
+            }
+        });
+    </script>
     <script>
         window.addEventListener("load", initPage, true); function initPage() {
             update_math();
         }
-
+        
         function pastePlainText(e) {
             e.stopPropagation();
             e.preventDefault();
