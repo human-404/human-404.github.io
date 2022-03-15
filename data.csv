@@ -33,7 +33,7 @@ LaTeX,Description
 N \\
 m
 \end{array}\right) \mu^{m}(1-\mu)^{N-m} $$","binomial distribution"
-"$$ \frac{X \vdash A \lor B \quad Y \vdash A \rightarrow C \quad Y \vdash B \rightarrow C}{X, Y, Z \vdash C} \lor \mathrm{E} \quad \frac{X \vdash A \lor B \quad Y, A \vdash C \quad Z, B \vdash C}{X, Y, Z \vdash C} \lor \mathrm{E} $$","case analysis, disjunction elimination, or elimination, proof by cases"
+"$$ \frac{X \vdash A \lor B \quad Y \vdash A \rightarrow C \quad Z \vdash B \rightarrow C}{X, Y, Z \vdash C} \lor \mathrm{E} \quad \frac{X \vdash A \lor B \quad Y, A \vdash C \quad Z, B \vdash C}{X, Y, Z \vdash C} \lor \mathrm{E} $$","case analysis, disjunction elimination, or elimination, proof by cases"
 "$$ \frac{\mathrm{T}: A \lor B}{\mathrm{T}: A \mid \mathrm{T}: B} \quad \frac{\mathrm{F}: A \lor B}{\mathrm{F}: A, \mathrm{F}: B}$$","case analysis, disjunction elimination, or elimination, proof by cases, semantic tableaux"
 "$$ \begin{aligned}
 p_{1},\ldots ,p_{k} \\ 
