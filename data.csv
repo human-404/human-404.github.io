@@ -2,6 +2,7 @@ LaTeX,Description
 "$$ z_{j}=h\left(a_{j}\right) $$","activation function, artificial neural network, differentiable, hidden layer, nonlinear function"
 "$$ \frac{X \vdash A \quad Y \vdash A \rightarrow B}{X, Y \vdash B} \rightarrow \mathrm{E} $$","affirming the antecedent, implication elimination, modus ponens,  rule of inference"
 "$$ \ln p\left(\mathcal{D} \mid \mathbf{w}_{\mathrm{ML}}\right)-M $$","AIC, Akaike information criterion, log likelihood"
+"$$ \frac{\mathrm{T}: A \land B}{\mathrm{T}: A, \mathrm{T}: B} \quad \frac{\mathrm{F}: A \land B}{\mathrm{F}: A \mid \mathrm{F}: B}$$","and elimination, conjunction elimination, semantic tableaux"
 "$$ \frac{X \vdash A \land B}{X \vdash A} \land \mathrm{E} \quad \frac{X \vdash A \land B}{X \vdash B} \land \mathrm{E} $$","and elimination, conjunction elimination, propositional logic, rule of inference"
 "$$ A_{1},\,\dots ,A_{m}\,\vdash \,B_{1},\,\dots ,B_{n} $$","antecedent, consequent, mathematical logic, sequent"
 "$$ \arg \max $$","arg max, argument of the maxima"
@@ -88,7 +89,7 @@ p(x|\mu ,\sigma ^{2}) &= {\frac {1}{\sqrt {2\pi \sigma ^{2}}}}e^{-{\frac {(x-\mu
 \\ p(x|\mu ,\sigma ^{2}) &\propto e^{-{\frac {(x-\mu )^{2}}{2\sigma ^{2}}}}
  \end{aligned} $$","Gaussian kernel, kernel (statistics)"
 "$$ {\displaystyle f:\mathbb {R} ^{n}\to \mathbb {R}, \quad}{\displaystyle \mathbf {H} _{f}={\begin{bmatrix}{\dfrac {\partial ^{2}f}{\partial x_{1}^{2}}}&{\dfrac {\partial ^{2}f}{\partial x_{1}\,\partial x_{2}}}&\cdots &{\dfrac {\partial ^{2}f}{\partial x_{1}\,\partial x_{n}}}\\[2.2ex]{\dfrac {\partial ^{2}f}{\partial x_{2}\,\partial x_{1}}}&{\dfrac {\partial ^{2}f}{\partial x_{2}^{2}}}&\cdots &{\dfrac {\partial ^{2}f}{\partial x_{2}\,\partial x_{n}}}\\[2.2ex]\vdots &\vdots &\ddots &\vdots \\[2.2ex]{\dfrac {\partial ^{2}f}{\partial x_{n}\,\partial x_{1}}}&{\dfrac {\partial ^{2}f}{\partial x_{n}\,\partial x_{2}}}&\cdots &{\dfrac {\partial ^{2}f}{\partial x_{n}^{2}}}\end{bmatrix}},\quad}{\displaystyle (\mathbf {H} _{f})_{i,j}={\frac {\partial ^{2}f}{\partial x_{i}\,\partial x_{j}}}.} $$","Hessian matrix, partial derivatives, square matrix, symmetric matrix"
-"$$ \frac{\mathrm{T}: A \rightarrow B}{\mathrm{~F}: A \mid \mathrm{T}: B} \quad \frac{\mathrm{F}: A \rightarrow B}{\mathrm{~T}: A, \mathrm{~F}: B} $$","implication elimination, semantic tableaux"
+"$$ \frac{\mathrm{T}: A \rightarrow B}{\mathrm{F}: A \mid \mathrm{T}: B} \quad \frac{\mathrm{F}: A \rightarrow B}{\mathrm{T}: A, \mathrm{F}: B} $$","implication elimination, semantic tableaux"
 "$$ \frac{X, B \vdash A \quad Y, B \vdash \neg A}{X, Y \vdash \neg B}\text{ RAA (reductio ad absurdum)} $$","indirect proof, proof by contradiction, reductio ad absurdum"
 "$$ \begin{aligned}
 \mathrm{KL}(p \| q) &=-\int p(\mathbf{x}) \ln q(\mathbf{x}) \mathrm{d} \mathbf{x}-\left(-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x}\right) \\
