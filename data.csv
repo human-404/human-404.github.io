@@ -114,6 +114,7 @@ p(x) & \geqslant 0 \\
 "$$ \mathbb{E}_{\boldsymbol{\theta}}[\boldsymbol{\theta}]=\mathbb{E}_{\mathcal{D}}\left[\mathbb{E}_{\boldsymbol{\theta}}[\boldsymbol{\theta} \mid \mathcal{D}]\right] $$","law of total expectation"
 "$$ \operatorname{var}_{\boldsymbol{\theta}}[\boldsymbol{\theta}]=\mathbb{E}_{\mathcal{D}}\left[\operatorname{var}_{\boldsymbol{\theta}}[\boldsymbol{\theta} \mid \mathcal{D}]\right]+\operatorname{var}_{\mathcal{D}}\left[\mathbb{E}_{\boldsymbol{\theta}}[\boldsymbol{\theta} \mid \mathcal{D}]\right] $$","law of total variance"
 "$$ {\displaystyle \operatorname {tr} (\mathbf {A} )=\sum _{i=1}^{n}a_{ii}=a_{11}+a_{22}+\dots +a_{nn}} $$","linear algebra, matrix, square matrix, trace"
+"$$ {\displaystyle \operatorname {P} (X\geq a)\leq {\frac {\operatorname {E} (X)}{a}}\quad a > 0, X \geq 0} $$","Markov's inequality, non-negative function, upper bound"
 "$$ \mathbb{E}\left[L_{q}\right]=\iint|y(\mathbf{x})-t|^{q} p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t $$","Minkowski loss"
 "$$ \operatorname{Mult}\left(m_{1}, m_{2}, \ldots, m_{K} \mid \boldsymbol{\mu}, N\right)=\binom{N}{m_{1} m_{2} \ldots m_{K}} \prod_{k=1}^{K} \mu_{k}^{m_{k}} $$","multinomial distribution"
 "$$ \frac{X, A \vdash \bot}{X \vdash \neg A} \neg \mathrm{I}, \quad \frac{A \quad \neg A}{\bot} \neg \mathrm{E}$$","negation elimination, negation introduction"
