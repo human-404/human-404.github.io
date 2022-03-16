@@ -85,6 +85,7 @@ p(x, y) &=p(y \mid x) p(x) .
 "$$ \begin{aligned} A(\eta ) &=\log \left(\int _{X}h(x)\,\exp(\eta (\theta )\cdot T(x))\,\mathrm {d\,} x\right) \\ \psi(\boldsymbol{\eta}) &=\log \int \exp \left(\boldsymbol{\eta}^{\top} \boldsymbol{u}(x)\right) \mathrm{d} x \end{aligned} $$","exponential family, log-partition function, normalisation factor"
 "$$ \begin{aligned} p(\mathbf{x} \mid \boldsymbol{\eta}) &=h(\mathbf{x}) g(\boldsymbol{\eta}) \exp \left\{\boldsymbol{\eta}^{\mathrm{T}} \mathbf{u}(\mathbf{x})\right\} \\ q(x \mid \boldsymbol{\eta}) &=\exp \left(\boldsymbol{\eta}^{\top} \boldsymbol{u}(x)-\psi(\boldsymbol{\eta})\right)\end{aligned} $$","exponential family, natural parameter"
 "$$ f(x)=\exp(x) $$","exponential function"
+"$$ {\displaystyle -\frac{1}{2}\left(D\ln\left(2\pi\right)+\ln\left(\det({\boldsymbol {\Sigma }})\right)+(\mathbf {x} -{\boldsymbol {\mu }})^{\top}{\boldsymbol {\Sigma }}^{-1}(\mathbf {x} -{\boldsymbol {\mu }})\right)} $$","Gaussian distribution, loglikelihood, multivariate Gaussian distribution"
 "$$ \mathcal{N}\left(x \mid \mu, \sigma^{2}\right)=\frac{1}{\left(2 \pi \sigma^{2}\right)^{1 / 2}} \exp \left\{-\frac{1}{2 \sigma^{2}}(x-\mu)^{2}\right\} $$","Gaussian distribution, normal distribution"
 "$$ f(x)=\sqrt{\frac{\beta}{2 \pi}} e^{-\beta(x-\mu)^{2} / 2}, \quad \beta=1 / \sigma^{2} $$","Gaussian distribution, normal distribution, precision, reciprocal of the variance"
 "$$ \begin{aligned}
