@@ -81,6 +81,7 @@ p(x, y) &=p(y \mid x) p(x) .
 \boldsymbol{\mu}_{k}^{\text {new }} &=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma\left(z_{n k}\right) \mathbf{x}_{n} \\
 \boldsymbol{\Sigma}_{k}^{\text {new }} &=\frac{1}{N_{k}} \sum_{n=1}^{N} \gamma\left(z_{n k}\right)\left(\mathbf{x}_{n}-\boldsymbol{\mu}_{k}^{\text {new }}\right)\left(\mathbf{x}_{n}-\boldsymbol{\mu}_{k}^{\text {new }}\right)^{\mathrm{T}} \\
 \pi_{k}^{\text {new }} &=\frac{N_{k}}{N} \\ N_{k} &= \sum_{n=1}^N \gamma(z_{nk}) \\ \ln p(\mathbf{X} \mid \boldsymbol{\mu}, \boldsymbol{\Sigma}, \boldsymbol{\pi}) &= \sum_{n=1}^{N} \ln \left\{\sum_{k=1}^{K} \pi_{k} \mathcal{N}\left(\mathbf{x}_{n} \mid \boldsymbol{\mu}_{k}, \boldsymbol{\Sigma}_{k}\right)\right\} \end{aligned} $$","expectation–maximization algorithm, Gaussian mixture model, M-step, responsibility"
+"$$ R[f]=\mathbb{E}[\operatorname{loss}(f(X), Y)] $$","expectation, loss function, predictor, risk function"
 "$$ \mathbb{E}[L]=\iint L(t, y(\mathbf{x})) p(\mathbf{x}, t) \mathrm{d} \mathbf{x} \mathrm{d} t $$","expected loss, loss function, regression analysis"
 "$$ \Delta^{2}=(\mathbf{x}-\boldsymbol{\mu})^{\mathrm{T}} \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu}) $$","exponent, Gaussian distribution, Mahalanobis distance"
 "$$ \begin{aligned} A(\eta ) &=\log \left(\int _{X}h(x)\,\exp(\eta (\theta )\cdot T(x))\,\mathrm {d\,} x\right) \\ \psi(\boldsymbol{\eta}) &=\log \int \exp \left(\boldsymbol{\eta}^{\top} \boldsymbol{u}(x)\right) \mathrm{d} x \end{aligned} $$","exponential family, log-partition function, normalisation factor"
