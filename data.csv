@@ -46,6 +46,7 @@ p(x=i)=p_{i}
 p_{y}(y) &=p_{x}(x)\left|\frac{\mathrm{d} x}{\mathrm{~d} y}\right| \\
 &=p_{x}(g(y))\left|g^{\prime}(y)\right|
 \end{aligned} $$","change of variable, Jacobian factor, Jacobian transformation"
+"$$ \Pr(|X-\mu |\geq k\sigma )\leq {\frac {1}{k^{2}}}\quad \mathbb{E}[X]=\mu\quad \mathrm{Var}[X]=\sigma^2\quad k>0 $$","Chebyshev's inequality, expectation, variance"
 "$$ \begin{aligned} \boldsymbol{\mu}_{a \mid b} &=\boldsymbol{\mu}_{a}+\boldsymbol{\Sigma}_{a b} \boldsymbol{\Sigma}_{b b}^{-1}\left(\mathbf{x}_{b}-\boldsymbol{\mu}_{b}\right) \\ \boldsymbol{\Sigma}_{a \mid b} &=\boldsymbol{\Sigma}_{a a}-\boldsymbol{\Sigma}_{a b} \boldsymbol{\Sigma}_{b b}^{-1} \boldsymbol{\Sigma}_{b a} \end{aligned} $$","conditional distribution, multivariate Gaussian distribution"
 "$$ \mathrm{H}[\mathbf{y} \mid \mathbf{x}]=-\iint p(\mathbf{y}, \mathbf{x}) \ln p(\mathbf{y} \mid \mathbf{x}) \mathrm{d} \mathbf{y} \mathrm{d} \mathbf{x} $$","conditional entropy"
 "$$ \mathrm{I}[\mathbf{x}, \mathbf{y}]=\mathrm{H}[\mathbf{x}]-\mathrm{H}[\mathbf{x} \mid \mathbf{y}]=\mathrm{H}[\mathbf{y}]-\mathrm{H}[\mathbf{y} \mid \mathbf{x}] $$","conditional entropy, mutual information"
