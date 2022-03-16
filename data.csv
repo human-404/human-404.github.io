@@ -29,6 +29,7 @@ LaTeX,Description
 \mu_{\mathrm{ML}}&=\frac{1}{N} \sum_{n=1}^{N} x_{n} \\ \sigma_{\mathrm{ML}}^{2}&=\frac{1}{N} \sum_{n=1}^{N}\left(x_{n}-\mu_{\mathrm{ML}}\right)^{2} \\ \mathbb{E}\left[\mu_{\mathrm{ML}}\right] &=\mu \\
 \mathbb{E}\left[\sigma_{\mathrm{ML}}^{2}\right] &=\left(\frac{N-1}{N}\right) \sigma^{2}
 \end{aligned} $$","bias, maximum likelihood solution, normal distribution, true mean, true variance"
+"$$ \frac{\mathrm{T}: A\Leftrightarrow B}{\mathrm{T}: A, \mathrm{T}: B \mid \mathrm{F}: A, \mathrm{F}: B} \quad  \frac{\mathrm{F}: A\Leftrightarrow B}{\mathrm{T}: A, \mathrm{F}: B \mid \mathrm{F}: A, \mathrm{T}: B} $$","biconditional, semantic tableaux"
 "$$ \operatorname{Bin}(m \mid N, \mu)=\left(\begin{array}{l}
 N \\
 m
