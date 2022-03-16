@@ -66,6 +66,7 @@ p(x, y) &=p(y \mid x) p(x) .
 "$$ y(x, \mathbf{w})=w_{0}+w_{1} x+w_{2} x^{2}+\ldots+w_{M} x^{M}=\sum_{j=0}^{M} w_{j} x^{j} $$","curve fitting, polynomial"
 "$$ p(t \mid x, \mathbf{x}, \mathbf{t})=\int p(t \mid x, \mathbf{w}) p(\mathbf{w} \mid \mathbf{x}, \mathbf{t}) \mathrm{d} \mathbf{w} $$","curve fitting, polynomial, predictive distribution"
 "$$ \mathrm{H}[\mathbf{x}]=-\int p(\mathbf{x}) \ln p(\mathbf{x}) \mathrm{d} \mathbf{x} $$","differential entropy"
+"$$ {\displaystyle {\frac {\partial (\mathbf {x} \cdot \mathbf {x} )}{\partial \mathbf {x} }}={\frac {\partial \mathbf {x} ^{\top }\mathbf {x} }{\partial \mathbf {x} }}={\frac {\partial \left\Vert \mathbf {x} \right\Vert ^{2}}{\partial \mathbf {x} }}= 2\mathbf{x}} $$","differentiation, Euclidean norm, matrix calculus, partial derivative"
 "$$ \operatorname{Dir}(\boldsymbol{\mu} \mid \boldsymbol{\alpha})=\frac{\Gamma\left(\alpha_{0}\right)}{\Gamma\left(\alpha_{1}\right) \cdots \Gamma\left(\alpha_{K}\right)} \prod_{k=1}^{K} \mu_{k}^{\alpha_{k}-1} $$","Dirichlet distribution, gamma function"
 "$$ \frac{A}{A \lor B} \lor \mathrm{I} \quad \frac{B}{A \lor B} \lor \mathrm{I} $$","disjunction introduction, or introduction"
 "$$ J=\sum_{n=1}^{N} \sum_{k=1}^{K} r_{n k}\left\|\mathbf{x}_{n}-\boldsymbol{\mu}_{k}\right\|^{2} $$","distortion measure, k-means clustering, objective function"
