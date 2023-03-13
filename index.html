@@ -137,8 +137,10 @@
         }) + " | " + w + " " + (h - offsetHour) + ":00");
         setTimeout(startTime, 1000);
     }
+	    
+    // let offset = getOffsetBetweenTimezonesForDate(new Date(), 'Asia/Shanghai', 'Australia/Canberra');
     
-    let offset = getOffsetBetweenTimezonesForDate(new Date(), 'Asia/Shanghai', 'Australia/Canberra');
+    let offset = getOffsetBetweenTimezonesForDate(new Date(), 'Australia/Canberra', 'Australia/Canberra');
     let offsetHour = offset / 3600000;
     $("#diffTimeZone").html(offsetHour);
 
